@@ -1,26 +1,25 @@
 import Navbar from "../components/layout/Navbar";
 import Hero from "../components/home/Hero";
 import PromoBanner from "../components/home/PromoBanner";
-import { ProductGrid } from "../components/home/ProductGrid";
+import ProductGrid from "../components/home/ProductGrid";
 import { AppleTV } from "../components/home/AppleTV";
 import Footer from "../components/layout/Footer";
 
-// Import images from assets
-import iphoneLineup from "../assets/banner/iphone-lineup.png";
-import collegeMacIpad from "../assets/banner/college-mac-ipad.png";
+import iphonelineup from "../assets/banner/iphonelineup.jpg";
+import collegeMacIpad from "../assets/banner/college-mac-ipad.jpg";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#f5f5f7] font-sans antialiased text-[#1d1d1f]">
+    <div className="min-h-screen bg-[#f5f5f7] text-[#1d1d1f] antialiased">
       <Navbar />
 
       <Hero />
 
-      <main className="flex flex-col gap-4 mt-3">
+      <main className="mt-3 flex flex-col gap-3">
         <PromoBanner
           title="iPhone"
           description="Meet the latest iPhone lineup."
-          image={iphoneLineup}
+          image={iphonelineup}
           link1="Learn more"
           link2="Shop iPhone"
         />
