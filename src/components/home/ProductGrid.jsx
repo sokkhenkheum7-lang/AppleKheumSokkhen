@@ -88,7 +88,7 @@ function ProductTitle({
   if (isIpadAir) {
     return (
       <h2 className={`${titleClass} ${color}`}>
-        iPad <span className="font-light italic text-blue-500">air</span>
+        iPad <span className="font-light italic text-blue-600">air</span>
       </h2>
     );
   }
