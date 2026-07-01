@@ -136,7 +136,7 @@ export default function ProductGrid() {
                   {description}
                 </p>
 
-                <div className="mt-4 flex gap-3">
+                <div className="mt-4 flex gap-4">
                   <button className="rounded-full bg-[#0071e3] px-4 py-1.5 text-sm text-white hover:bg-[#0077ed]">
                     Learn more
                   </button>

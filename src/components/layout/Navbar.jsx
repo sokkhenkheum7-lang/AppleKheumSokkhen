@@ -61,7 +61,7 @@ function Navbar() {
           }
         }}
       >
-        <nav className="mx-auto flex h-11 max-w-7xl items-center justify-between px-1 lg:px-8">
+        <nav className="mx-auto flex h-11 max-w-7xl items-center justify-between px-4 lg:px-35">
           <a href="/">
             <img
               src={hero}
