@@ -65,7 +65,7 @@ function MegaMenu({ menu }) {
       animate="visible"
       className="absolute left-0 top-full w-full bg-[#f5f5f7] border-t border-gray-200 shadow-xl z-50"
     >
-      <div className="mx-auto flex max-w-7xl gap-20 px-7 py-12">
+      <div className="mx-auto flex max-w-7xl gap-20 px-8 py-10 lg:px-32">
         {menu.columns.map((column) => (
          
           <motion.div variants={columnVariants} key={column.heading}>

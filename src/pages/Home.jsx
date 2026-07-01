@@ -11,7 +11,7 @@ import collegeMacIpad from "../assets/banner/college-mac-ipad.jpg";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white text-[#1d1d1f] antialiased">
+    <div className="min-h-screen bg-white text-[#1d1d1f] antialiased text-[17px] sm:text-[19px] font-sans simibold">
       <Navbar />
 
       <Hero />
@@ -19,19 +19,20 @@ export default function Home() {
       <main className="mt-3 flex flex-col gap-3">
         {/* iPhone Full Width Section */}
         <PromoBanner
-          title="iPhone"
-          description="Meet the latest iPhone lineup."
+          title="iPhone 17"
+          description="Magichromatic."
           image={iphonelineup}
           link1="Learn more"
-          link2="Shop iPhone"
+          link2="Buy"
         />
 
         {/* Apple for College Full Width Section */}
         <PromoBanner
-          title="Apple for College"
-          description="Mac and iPad. Major in any field."
+          title="Mac Book Air"
+          description="Now supercharged with M5."
           image={collegeMacIpad}
           link1="Learn more"
+          link2="Buy"
         />
         
         {/* 2. Capitalize the tag here */}
