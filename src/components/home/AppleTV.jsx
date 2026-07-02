@@ -247,7 +247,7 @@ export default function AppleTV() {
 
       <div className="relative w-full flex flex-col gap-6 md:gap-4">
 
-        {/* ជួរខាងលើ (Top Row): សន្លឹកធំៗរួមមាន F1, Cape Fear, MLS */}
+        
         <div
           className="flex gap-4 sm:gap-4 transition-transform duration-1000 ease-out pl-[10%] pr-[10%]"
           style={{ transform: getTopRowTransform() }}
@@ -260,7 +260,7 @@ export default function AppleTV() {
                 className="flex-shrink-0 transition-all duration-1000 ease-out"
                 style={{
                   width: item.isMain ? "72vw" : "32vw",
-                  maxWidth: item.isMain ? "930px" : "410px",
+                  maxWidth: item.isMain ? "940px" : "410px",
                   minWidth: item.isMain ? "290px" : "150px"
                 }}
               >
