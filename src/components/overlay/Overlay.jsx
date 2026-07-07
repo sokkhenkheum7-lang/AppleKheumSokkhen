@@ -4,7 +4,8 @@ import { menuData } from "../../mega-menu/MenuData";
 import SearchOverlay from "./SearchOverlay";
 import BagOverlay from "./BagOverlay";
 
-export default function Overlay({ active }) {
+// Accept onNavigate down from Navbar
+export default function Overlay({ active, onNavigate }) {
   if (!active) return null;
 
   return (
@@ -14,7 +15,8 @@ export default function Overlay({ active }) {
       ) : active === "bag" ? (
         <BagOverlay />
       ) : (
-        <MegaMenu menu={menuData[active]} />
+        /* Forward onNavigate down to MegaMenu */
+        <MegaMenu menu={menuData[active]} onNavigate={onNavigate} />
       )}
     </div>
   );

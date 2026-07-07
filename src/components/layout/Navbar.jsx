@@ -1,5 +1,6 @@
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 import hero from "../../assets/images/hero.png";
 import chart from "../../assets/images/chart.png";
@@ -25,40 +26,64 @@ const navItems = [
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeOverlay, setActiveOverlay] = useState(null);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
 
   const menuKeys = [...navItems.map((item) => item.key), "search", "bag"];
 
-  const logoClass = activeOverlay ? "brightness-0" : "brightness-0 invert";
+
+  const logoClass =
+    activeOverlay || !isHomePage
+      ? "brightness-0 opacity-80 hover:opacity-100"
+      : "brightness-0 invert opacity-80 hover:opacity-100";
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "unset";
     return () => { document.body.style.overflow = "unset"; };
   }, [isOpen]);
 
+  const handleNavigation = (path) => {
+    setActiveOverlay(null);
+    setIsOpen(false);
+    navigate(path);
+  };
+
   return (
     <>
       <Backdrop open={activeOverlay !== null} onClose={() => setActiveOverlay(null)} />
 
+
       <header
-        className={`fixed top-0 left-0 z-50 w-full transition-all duration-300 ${
-          activeOverlay ? "bg-white" : isOpen ? "bg-[#1d1d1f]" : "bg-[#1d1d1f]/80 backdrop-blur-xl"
-        }`}
+        className={`fixed top-0 left-0 z-50 w-full font-sans antialiased transition-all duration-300 
+          ${activeOverlay
+            ? "bg-white"
+            : isHomePage
+              ? "bg-[#1d1d1f]/80 backdrop-blur-xl border-b border-transparent"
+              : "bg-[#f5f5f7]/80 backdrop-blur-xl border-b border-[#e8e8ed]"
+          }`}
         onMouseLeave={() => { if (menuKeys.includes(activeOverlay)) setActiveOverlay(null); }}
       >
-        <nav className="relative mx-auto flex h-11 max-w-7xl items-center justify-between px-4 lg:px-35">
+        <nav className="relative mx-auto flex h-11 max-w-[1024px] items-center justify-between px-4 lg:px-0">
           {/* Logo */}
-          <a href="/" className="z-10">
+          <button onClick={() => handleNavigation("/")} className="z-10 flex items-center justify-center">
             <img src={hero} alt="Apple" className={`h-4 transition duration-300 ${logoClass}`} />
-          </a>
+          </button>
+
 
           {/* Centered Menu Items */}
-          <ul className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 md:flex">
+          <ul className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-9 md:flex">
             {navItems.map((item) => (
-              <li key={item.key} onMouseEnter={() => setActiveOverlay(item.key)}>
+              <li
+                key={item.key}
+                onMouseEnter={() => setActiveOverlay(item.key)}
+              >
                 <button
-                  className={`text-xs transition-colors duration-200 ${
-                    activeOverlay === item.key ? "text-black" : activeOverlay ? "text-gray-500 hover:text-black" : "text-gray-300 hover:text-white"
-                  }`}
+                  onClick={() => item.key === "store" && handleNavigation("/store")}
+                  className={`text-[12px] font-normal tracking-wide transition-colors duration-200 ${activeOverlay || !isHomePage
+                      ? "text-[#1d1d1f]/80 hover:text-black"
+                      : "text-white/80 hover:text-white"
+                    }`}
                 >
                   {item.label}
                 </button>
@@ -68,26 +93,29 @@ function Navbar() {
 
           {/* Right side icons */}
           <div className="z-10 flex items-center gap-6">
-            <button onClick={() => setActiveOverlay("search")} aria-label="Search" className="py-2">
-              <img src={search} alt="Search" className={`h-4 w-4 transition duration-300 ${logoClass}`} />
+            <button onClick={() => setActiveOverlay("search")} aria-label="Search" className="py-2 flex items-center">
+              <img src={search} alt="Search" className={`h-3.5 w-3.5 transition duration-300 ${logoClass}`} />
             </button>
-            <button onClick={() => setActiveOverlay("bag")} aria-label="Bag" className="py-2">
-              <img src={chart} alt="Bag" className={`transition duration-300 ${logoClass}`} />
+            <button onClick={() => setActiveOverlay("bag")} aria-label="Bag" className="py-2 flex items-center">
+              <img src={chart} alt="Bag" className={`h-4 transition duration-300 ${logoClass}`} />
             </button>
-            <button className="text-white md:hidden" onClick={() => setIsOpen(!isOpen)}>
+            <button
+              className={`md:hidden ${isHomePage && !activeOverlay ? "text-white" : "text-black"}`}
+              onClick={() => setIsOpen(!isOpen)}
+            >
               {isOpen ? <X size={18} /> : <Menu size={18} />}
             </button>
           </div>
         </nav>
 
-        <Overlay active={activeOverlay} />
+        {/* Pass down the navigation function to the overlay panel */}
+        <Overlay active={activeOverlay} onNavigate={handleNavigation} />
       </header>
 
       {/* Mobile Menu */}
       <div
-        className={`fixed inset-0 z-40 bg-black/80 backdrop-blur-2xl transition-all duration-500 md:hidden ${
-          isOpen ? "visible opacity-100" : "pointer-events-none invisible opacity-0"
-        }`}
+        className={`fixed inset-0 z-40 bg-black/80 backdrop-blur-2xl transition-all duration-500 md:hidden ${isOpen ? "visible opacity-100" : "pointer-events-none invisible opacity-0"
+          }`}
       >
         <div className="flex h-full flex-col overflow-y-auto px-8 pt-20">
           <ul className="space-y-6">
@@ -97,9 +125,12 @@ function Navbar() {
                 className={`transition-all duration-500 ${isOpen ? "translate-y-0 opacity-100" : "-translate-y-6 opacity-0"}`}
                 style={{ transitionDelay: `${index * 40}ms` }}
               >
-                <a href="/" onClick={() => setIsOpen(false)} className="text-4xl font-semibold text-white hover:text-gray-400">
+                <button
+                  onClick={() => handleNavigation(item.key === "store" ? "/store" : "/")}
+                  className="text-3xl font-medium text-white hover:text-gray-400 text-left w-full"
+                >
                   {item.label}
-                </a>
+                </button>
               </li>
             ))}
           </ul>
