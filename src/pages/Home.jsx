@@ -1,7 +1,7 @@
 import Navbar from "../components/layout/Navbar";
 import Hero from "../components/home/Hero";
 import PromoBanner from "../components/home/PromoBanner";
-import Productsgrid from "../components/home/productsgrid";
+import ProductsGrid from "../components/home/ProductsGrid"; // Fixed capitalization casing
 import AppleTV from "../components/home/AppleTV";
 import Footer from "../components/layout/Footer";
 import iphonelineup from "../assets/banner/iphonelineup.jpg";
@@ -9,11 +9,12 @@ import collegeMacIpad from "../assets/banner/college-mac-ipad.jpg";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white text-[#1d1d1f] antialiased text-[17px] sm:text-[19px] font-sans simibold">
+    <div className="min-h-screen bg-white text-[#1d1d1f] antialiased text-[17px] sm:text-[19px] font-sans selection:bg-neutral-200">
       <Navbar />
 
       <Hero />
 
+      {/* Main stacked layout utilizing standard 12px responsive spacing */}
       <main className="mt-3 flex flex-col gap-3">
         {/* iPhone Full Width Section */}
         <PromoBanner
@@ -26,18 +27,21 @@ export default function Home() {
 
         {/* Apple for College Full Width Section */}
         <PromoBanner
-          title="Mac Book Air"
+          title="MacBook Air"
           description="Now supercharged with M5."
           image={collegeMacIpad}
           link1="Learn more"
           link2="Buy"
         />
         
-        {/* 2. Capitalize the tag here */}
-        <Productsgrid />
-       
+        {/* Secondary Promo Display / Product Matrix Grid */}
+        <ProductsGrid />
       </main>
-      <AppleTV />
+
+      {/* Media & TV+ Entertainment Showcase Slider */}
+      <div className="mt-3">
+        <AppleTV />
+      </div>
 
       <Footer />
     </div>

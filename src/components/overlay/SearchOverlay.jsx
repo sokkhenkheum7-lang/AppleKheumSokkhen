@@ -39,7 +39,7 @@ export default function SearchOverlay() {
       /* UPDATED: Changed background to white, added subtle bottom shadow, and changed base text to dark */
       className="absolute left-0 top-full z-50 w-full min-h-[400px] bg-white border-t border-gray-100 pt-14 pb-16 font-sans text-[#1d1d1f] shadow-xl"
     >
-      <div className="mx-auto max-w-7xl px-7">
+      <div className="mx-auto max-w-8xl px-10 pl-190">
         {/* Search Input */}
         <div className="relative mb-8 flex max-w-3xl items-center">
           <Search
@@ -73,7 +73,7 @@ export default function SearchOverlay() {
                 key={link}
                 variants={itemVariants}
                 /* Hover creates a clean light-gray selection pill structure */
-                className="group flex w-full cursor-pointer items-center gap-3 rounded-md py-2 px-3 -ml-3 transition-colors duration-150 hover:bg-[#f5f5f7]"
+                className="group flex w-full cursor-pointer items-center gap-3 rounded-md py-2 px-7 -ml-8 transition-colors duration-150 hover:bg-[#f5f5f7]"
               >
                 <ArrowRight
                   strokeWidth={2}
