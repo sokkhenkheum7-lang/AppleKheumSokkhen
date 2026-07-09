@@ -1,5 +1,11 @@
 import React, { useRef, useState, useEffect } from "react";
-
+// 1. Import your local icon files from your assets folder here:
+import TradeInIcon from "../assets/icon/cphone1.jpg";
+import card from "../assets/icon/cphone2.jpg";
+import smile from "../assets/icon/cphone3.jpg"
+import delivery from "../assets/icon/cphone4.jpg"
+import Applebage from "../assets/icon/cphone5.jpg"
+import Appleorange from "../assets/icon/cphone6.jpg";
 // ==========================================
 // Mock Data Configurations
 // ==========================================
@@ -38,11 +44,10 @@ const helpCards = [
 const appleDifferent = [
   {
     iconType: "trade-in",
-    iconColor: "text-[#0066cc]",
     titleHighlight: "Trade in your current device.",
-    titleNormal: " Get credit toward a new one.†",
-    highlightColor: "text-[#0066cc]",
-    link: "#trade-in"
+    titleEnd: " Get credit toward a new one.†",
+    highlightColor: "text-[#007AFF]",
+
   },
   {
     iconType: "card",
@@ -51,7 +56,7 @@ const appleDifferent = [
     titleHighlight: "pay over time.",
     titleEnd: " Your choice.",
     highlightColor: "text-[#008000]",
-    link: "#payment-plans"
+
   },
   {
     iconType: "smile",
@@ -59,11 +64,10 @@ const appleDifferent = [
     titleNormal: "Make them yours. ",
     titleHighlight: "Engrave a mix of emoji, names, and numbers for free.",
     highlightColor: "text-[#a133e3]",
-    link: "#engraving"
+
   },
   {
     iconType: "delivery",
-    iconColor: "text-[#008000]",
     titleNormal: "Enjoy ",
     titleHighlight: "two-hour delivery ",
     titleMiddle: "from an Apple Store, ",
@@ -72,9 +76,83 @@ const appleDifferent = [
     titleHighlight3: "easy pickup.",
     titleEnd: "¹",
     highlightColor: "text-[#008000]",
-    link: "#delivery"
+
+  },
+  {
+    iconType: "Applebage",
+    titleNormal: "Get a ",
+    titleHighlight: "Personalized Shopping ",
+    titleMiddle: "experince in the ",
+    titleHighlight2: "Apple Store app.",
+    highlightColor: "text-[#3F6EB8]",
+
+  },
+  {
+    iconType: "Appleorange",
+    titleNormal: "Customize",
+    titleHighlight: "a Mac and style an Apple Watch just for them.",
+    highlightColor: "text-[#3F6EB8]",
+
   }
 ];
+
+// ==========================================
+// Icon Selector Component
+// ==========================================
+function IconSelector({ type, className }) {
+  switch (type) {
+    case "trade-in":
+      return (
+        <img
+          src={TradeInIcon}
+          alt="Trade In Icon"
+          className="w-11 h-11 object-contain"
+        />
+      );
+    case "card":
+      return (
+        <img
+          src={card}
+          alt="Card Icon"
+          className="w-11 h-11 object-contain"
+        />
+      );
+    case "smile":
+      return (
+        <img
+          src={smile}
+          alt="Card Icon"
+          className="w-11 h-11 object-contain"
+        />
+      );
+    case "delivery":
+      return (
+        <img
+          src={delivery}
+          alt="Card Icon"
+          className="w-11 h-11 object-contain"
+        />
+      );
+    case "Applebage":
+      return (
+        <img
+          src={Applebage}
+          alt="Card Icon"
+          className="w-11 h-11 object-contain"
+        />
+      );
+    case "Appleorange":
+      return (
+        <img
+          src={Appleorange}
+          alt="Card Icon"
+          className="w-11 h-11 object-contain"
+        />
+      );
+    default:
+      return null;
+  }
+}
 
 // ==========================================
 // Reusable Layout Components
@@ -155,7 +233,6 @@ export default function Store() {
   const [activeCategory, setActiveCategory] = useState(0);
 
   const handleDifferentCardClick = (link) => {
-    // Replace this logic with your framework router if needed (e.g., useNavigate)
     window.location.hash = link;
   };
 
@@ -205,15 +282,16 @@ export default function Store() {
         </div>
 
         {/* Apple Store Difference Section */}
-        <div className="space-y-5">
+        <div className="space-y-6">
           <h3 className="text-[24px] md:text-[28px] font-semibold tracking-tight text-[#6e6e73]">
             <span className="text-[#1d1d1f]">The Apple Store difference.</span> Even more reasons to shop with us.
           </h3>
+
           <HorizontalSlider>
             {appleDifferent.map((card, idx) => (
-              <AppleDifferent 
-                key={idx} 
-                card={card} 
+              <AppleDifferent
+                key={idx}
+                card={card}
                 onClick={() => handleDifferentCardClick(card.link)}
               />
             ))}
@@ -324,58 +402,19 @@ function HelpCard({ card }) {
   );
 }
 
-function IconSelector({ type, className }) {
-  switch (type) {
-    case "trade-in":
-      return (
-        <svg className={`w-8 h-8 ${className}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M10.05 4.575a1.5 1.5 0 011.9 0l6.375 5.61a1.5 1.5 0 01.1 2.1l-6.375 6.375a1.5 1.5 0 01-2.12 0l-4.5-4.5a1.5 1.5 0 010-2.12l6.375-6.375z" />
-          <path strokeLinecap="round" strokeLinejoin="round" d="M14.25 9.75L12 12m0 0l-2.25 2.25M12 12l2.25 2.25M12 12L9.75 9.75" />
-        </svg>
-      );
-    case "card":
-      return (
-        <svg className={`w-8 h-8 ${className}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-          <rect width="20" height="14" x="2" y="5" rx="2" />
-          <path strokeLinecap="round" strokeLinejoin="round" d="M2 10h20M6 14h2" />
-        </svg>
-      );
-    case "smile":
-      return (
-        <svg className={`w-8 h-8 ${className}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-          <circle cx="12" cy="12" r="10" />
-          <path strokeLinecap="round" strokeLinejoin="round" d="M15.25 10.25h.008M8.75 10.25h.008M15.5 14a3.5 3.5 0 01-7 0" />
-        </svg>
-      );
-    case "delivery":
-      return (
-        <svg className={`w-8 h-8 ${className}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 18.75a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM18.75 18.75a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
-          <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6h11.25v10.5H3.75zM15 9.75h4.5l3 3.75V16.5h-7.5V9.75z" />
-        </svg>
-      );
-    default:
-      return null;
-  }
-}
-
 function AppleDifferent({ card, onClick }) {
   return (
-    <div 
+    <div
       onClick={onClick}
-      className="relative w-[309px] sm:w-[309px] h-[240px] rounded-[25px] bg-white shadow-sm border border-gray-100/40 p-8 flex flex-col justify-start gap-4 snap-start shrink-0 transition-all duration-300 hover:shadow-md hover:scale-[1.01] cursor-pointer select-none"
+      className="relative sm:w-[309px] h-[240px] rounded-[25px] bg-white shadow-sm border border-gray-100/46 p-8 flex flex-col justify-start gap-3 snap-start shrink-0 transition-all duration-300 hover:shadow-md hover:scale-[1.01] cursor-pointer select-none"
     >
-      {/* Icon Top Header */}
       <div>
         <IconSelector type={card.iconType} className={card.iconColor} />
       </div>
 
-      {/* Styled Inline Highlighting Body Text matching your precise font stack and typography */}
-      <p 
-        className="text-[24px] font-normal leading-[25px] tracking-[-0.21px] text-[#1d1d1f] normal-case text-left"
-        style
-        =
-      {{ fontFamily: '"SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif' }}
+      <p
+        className="text-[24px] font-semibold leading-[25px] tracking-[-0.21px] normal-case text-left"
+        style={{ font: '"SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif' }}
       >
         {card.titleNormal && <span>{card.titleNormal}</span>}
         {card.titleHighlight && (
