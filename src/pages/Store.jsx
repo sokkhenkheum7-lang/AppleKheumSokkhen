@@ -1,11 +1,17 @@
 import React, { useRef, useState, useEffect } from "react";
-// 1. Import your local icon files from your assets folder here:
+import Accessories from "./Accessories";
+import Lounder from "./lounder";
+import AppleExperience from "./AppleExperience";
+import AppleSaving from "./AppleSaving";
+
+// Import your local icon files from your assets folder here:
 import TradeInIcon from "../assets/icon/cphone1.jpg";
 import card from "../assets/icon/cphone2.jpg";
-import smile from "../assets/icon/cphone3.jpg"
-import delivery from "../assets/icon/cphone4.jpg"
-import Applebage from "../assets/icon/cphone5.jpg"
+import smile from "../assets/icon/cphone3.jpg";
+import delivery from "../assets/icon/cphone4.jpg";
+import Applebage from "../assets/icon/cphone5.jpg";
 import Appleorange from "../assets/icon/cphone6.jpg";
+
 // ==========================================
 // Mock Data Configurations
 // ==========================================
@@ -42,122 +48,219 @@ const helpCards = [
 ];
 
 const appleDifferent = [
-  {
-    iconType: "trade-in",
-    titleHighlight: "Trade in your current device.",
-    titleEnd: " Get credit toward a new one.†",
-    highlightColor: "text-[#007AFF]",
-
-  },
-  {
-    iconType: "card",
-    iconColor: "text-[#008000]",
-    titleNormal: "Pay in full or ",
-    titleHighlight: "pay over time.",
-    titleEnd: " Your choice.",
-    highlightColor: "text-[#008000]",
-
-  },
-  {
-    iconType: "smile",
-    iconColor: "text-[#a133e3]",
-    titleNormal: "Make them yours. ",
-    titleHighlight: "Engrave a mix of emoji, names, and numbers for free.",
-    highlightColor: "text-[#a133e3]",
-
-  },
-  {
-    iconType: "delivery",
-    titleNormal: "Enjoy ",
-    titleHighlight: "two-hour delivery ",
-    titleMiddle: "from an Apple Store, ",
-    titleHighlight2: "free delivery",
-    titleMiddle2: ", or ",
-    titleHighlight3: "easy pickup.",
-    titleEnd: "¹",
-    highlightColor: "text-[#008000]",
-
-  },
-  {
-    iconType: "Applebage",
-    titleNormal: "Get a ",
-    titleHighlight: "Personalized Shopping ",
-    titleMiddle: "experince in the ",
-    titleHighlight2: "Apple Store app.",
-    highlightColor: "text-[#3F6EB8]",
-
-  },
-  {
-    iconType: "Appleorange",
-    titleNormal: "Customize",
-    titleHighlight: "a Mac and style an Apple Watch just for them.",
-    highlightColor: "text-[#3F6EB8]",
-
-  }
+  { iconType: "trade-in", titleHighlight: "Trade in your current device.", titleEnd: " Get credit toward a new one.†", highlightColor: "text-[#007AFF]" },
+  { iconType: "card", iconColor: "text-[#008000]", titleNormal: "Pay in full or ", titleHighlight: "pay over time.", titleEnd: " Your choice.", highlightColor: "text-[#008000]" },
+  { iconType: "smile", iconColor: "text-[#a133e3]", titleNormal: "Make them yours. ", titleHighlight: "Engrave a mix of emoji, names, and numbers for free.", highlightColor: "text-[#a133e3]" },
+  { iconType: "delivery", titleNormal: "Enjoy ", titleHighlight: "two-hour delivery ", titleMiddle: "from an Apple Store, ", titleHighlight2: "free delivery", titleMiddle2: ", or ", titleHighlight3: "easy pickup.", titleEnd: "¹", highlightColor: "text-[#008000]" },
+  { iconType: "Applebage", titleNormal: "Get a ", titleHighlight: "Personalized Shopping ", titleMiddle: "experince in the ", titleHighlight2: "Apple Store app.", highlightColor: "text-[#3F6EB8]" },
+  { iconType: "Appleorange", titleNormal: "Customize", titleHighlight: "a Mac and style an Apple Watch just for them.", highlightColor: "text-[#3F6EB8]" }
 ];
 
 // ==========================================
-// Icon Selector Component
+// EXPORTING THE SLIDER SO ACCESSORIES CAN USE IT
 // ==========================================
-function IconSelector({ type, className }) {
-  switch (type) {
-    case "trade-in":
-      return (
-        <img
-          src={TradeInIcon}
-          alt="Trade In Icon"
-          className="w-11 h-11 object-contain"
-        />
-      );
-    case "card":
-      return (
-        <img
-          src={card}
-          alt="Card Icon"
-          className="w-11 h-11 object-contain"
-        />
-      );
-    case "smile":
-      return (
-        <img
-          src={smile}
-          alt="Card Icon"
-          className="w-11 h-11 object-contain"
-        />
-      );
-    case "delivery":
-      return (
-        <img
-          src={delivery}
-          alt="Card Icon"
-          className="w-11 h-11 object-contain"
-        />
-      );
-    case "Applebage":
-      return (
-        <img
-          src={Applebage}
-          alt="Card Icon"
-          className="w-11 h-11 object-contain"
-        />
-      );
-    case "Appleorange":
-      return (
-        <img
-          src={Appleorange}
-          alt="Card Icon"
-          className="w-11 h-11 object-contain"
-        />
-      );
-    default:
-      return null;
-  }
+
+
+// ==========================================
+// Main Store Layout Component
+// ==========================================
+export default function Store() {
+  const [activeCategory, setActiveCategory] = useState(0);
+
+  const handleDifferentCardClick = (link) => {
+    window.location.hash = link;
+  };
+
+  return (
+    <div className="min-h-screen bg-[#f5f5f7] text-[#1d1d1f] font-sans antialiased pb-24 pt-11">
+      <AnnouncementRibbon />
+
+      <div className="mx-auto max-w-[89%] px-6 lg:px-0 space-y-16">
+        <StoreHeader />
+
+        {/* Categories Section */}
+        <div className="-mt-16">
+          <HorizontalSlider containerClass="gap-6 text-[16px]">
+            {categories.map((item, index) => (
+              <CategoryCard
+                key={item.name}
+                item={item}
+                active={activeCategory === index}
+                onClick={() => setActiveCategory(index)}
+              />
+            ))}
+          </HorizontalSlider>
+        </div>
+
+        {/* 1st Showcase Block: Product Showcase Section */}
+        <div className="space-y-5">
+          <h3 className="text-[24px] md:text-[28px] font-semibold tracking-tight text-[#6e6e73]">
+            <span className="text-[#1d1d1f]">The latest.</span> Take a look at what’s new, right now.
+          </h3>
+          <HorizontalSlider>
+            {latestProducts.map((product, idx) => (
+              <ProductCard key={product.title || idx} product={product} />
+            ))}
+          </HorizontalSlider>
+        </div>
+        {/* 3rd Showcase Block: Help & Support Section */}
+        <div className="space-y-5">
+          <h3 className="text-[24px] md:text-[28px] font-semibold tracking-tight text-[#6e6e73]">
+            <span className="text-[#1d1d1f]">Help is here.</span> Whenever and however you need it.
+          </h3>
+          <HorizontalSlider>
+            {helpCards.map((card, idx) => (
+              <HelpCard key={card.title || idx} card={card} />
+            ))}
+          </HorizontalSlider>
+        </div>
+         {/* 2nd Showcase Block: Apple Store Difference Section */}
+        <div className="space-y-6">
+          <h3 className="text-[24px] md:text-[28px] font-semibold tracking-tight text-[#6e6e73]">
+            <span className="text-[#1d1d1f]">The Apple Store difference.</span> Even more reasons to shop with us.
+          </h3>
+          <HorizontalSlider>
+            {appleDifferent.map((card, idx) => (
+              <AppleDifferent
+                key={idx}
+                card={card}
+                onClick={() => handleDifferentCardClick(card.link)}
+              />
+            ))}
+          </HorizontalSlider>
+        </div>
+        {/* 4th Showcase Block: Accessories Section (Moved directly below Help section) */}
+        <Accessories />
+        <Lounder/>
+        <AppleExperience />
+        <AppleSaving/>
+      </div>
+     
+    </div>
+  );
 }
 
 // ==========================================
-// Reusable Layout Components
+// Sub-Components
 // ==========================================
-function HorizontalSlider({ children, containerClass = "" }) {
+function IconSelector({ type }) {
+  switch (type) {
+    case "trade-in": return <img src={TradeInIcon} alt="Trade In" className="w-11 h-11 object-contain" />;
+    case "card": return <img src={card} alt="Card" className="w-11 h-11 object-contain" />;
+    case "smile": return <img src={smile} alt="Smile" className="w-11 h-11 object-contain" />;
+    case "delivery": return <img src={delivery} alt="Delivery" className="w-11 h-11 object-contain" />;
+    case "Applebage": return <img src={Applebage} alt="Badge" className="w-11 h-11 object-contain" />;
+    case "Appleorange": return <img src={Appleorange} alt="Orange" className="w-11 h-11 object-contain" />;
+    default: return null;
+  }
+}
+
+function AnnouncementRibbon() {
+  return (
+    <div className="w-full bg-white py-5 text-center shadow-sm">
+      <p className="inline-flex items-center justify-center gap-1 px-4 font-normal text-[#1d1d1f] text-[14px] leading-[21px]">
+        <span>Now you can buy Apple Watch<sup className="mx-[1px] text-[9px]">◊</sup> with education savings.<sup className="mx-[1px] text-[9px]">Δ</sup></span>
+        <a href="#learn-more" className="group ml-0.5 inline-flex items-center gap-0.5 text-[#0066cc] hover:underline">
+          Learn more
+          <svg className="h-3 w-3 text-[#0066cc]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}>
+            <circle cx="12" cy="12" r="10" /><path strokeLinecap="round" strokeLinejoin="round" d="M12 8v8M8 12h8" />
+          </svg>
+        </a>
+      </p>
+    </div>
+  );
+}
+
+function StoreHeader() {
+  return (
+    <div className="pt-21 pb-1 flex flex-col md:flex-row md:justify-between md:items-baseline gap-4">
+      <h1 className="text-[64px] md:text-[80px] font-semibold tracking-tight text-[#1d1d1f] leading-none">Store</h1>
+      <div className="md:text-right max-w-sm pb-12 md:-translate-y-[32%]">
+        <h2 className="text-[28px] font-semibold leading-[32px] tracking-[0.196px] text-[#1d1d1f]">
+          The best way to buy the<br className="hidden md:block" />products you love.
+        </h2>
+        <div className="mt-4 space-y-2">
+          {["Connect with a Specialist", "Find an Apple Store"].map((text, i) => (
+            <React.Fragment key={text}>
+              {i > 0 && <br />}
+              <a href={`#${text.toLowerCase().replace(/ /g, "-")}`} className="inline-flex items-center text-[14px] text-[#0066cc] hover:underline group">
+                {text}
+                <svg className="ml-1 w-[12px] h-[12px] stroke-current" fill="none" viewBox="0 0 24 24" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M9 7h8v8" />
+                </svg>
+              </a>
+            </React.Fragment>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function CategoryCard({ item, active, onClick }) {
+  return (
+    <div onClick={onClick} className="flex flex-col items-center text-center min-w-[120px] snap-start cursor-pointer group/item select-none">
+      <div className="w-[120px] h-[78px] flex items-center justify-center rounded-xl">
+        <img src={item.img} alt={item.name} className="max-h-[76px] max-w-full duration-300" />
+      </div>
+      <span className="mt-3 text-[13px] font-semibold tracking-tight text-[#1d1d1f]">{item.name}</span>
+    </div>
+  );
+}
+
+function ProductCard({ product }) {
+  const isDarkBg = product.bgClass.includes("bg-black");
+  return (
+    <div className={`relative w-[340px] sm:w-[400px] h-[500px] rounded-[25px] px-8 pt-8 pb-8 overflow-hidden snap-start shrink-0 transition-all duration-500 hover:scale-[1.01] shadow-sm hover:shadow-md ${product.bgClass}`}>
+      <div className="relative z-20 flex flex-col">
+        {product.tag && <span className="mb-2 text-[14px] font-semibold uppercase tracking-[0.12em] text-[#bf4800]">{product.tag}</span>}
+        <h4 className={`text-[28px] font-bold leading-[32px] tracking-[0.196px] ${isDarkBg ? "text-white" : "text-[#1d1d1f]"}`}>{product.title}</h4>
+        <p className={`mt-1 text-[14px] font-bold leading-[18px] ${isDarkBg ? "text-white/90" : "text-[#1d1d1f]"}`}>{product.subtitle}</p>
+        <p className={`mt-[3px] text-[14px] font-normal leading-[20px] ${isDarkBg ? "text-[#a1a1a6]" : "text-[#6e6e73]"}`}>{product.price}</p>
+      </div>
+      <div className="absolute inset-x-0 bottom-0 top-[18%] z-0 flex items-center justify-center overflow-hidden pointer-events-none">
+        <img src={product.img} alt={product.title} className="w-full h-auto object-contain -translate-y-6" />
+      </div>
+    </div>
+  );
+}
+
+function HelpCard({ card }) {
+  const isDarkBg = card.bgClass.includes("bg-black");
+  return (
+    <div className={`relative w-[380px] sm:w-[480px] h-[500px] rounded-[25px] px-8 pt-8 pb-8 overflow-hidden snap-start shrink-0 transition-all duration-500 hover:scale-[1.01] shadow-sm hover:shadow-md ${card.bgClass}`}>
+      <div className="relative z-20 flex flex-col max-w-[320px]">
+        {card.tag && <span className={`text-[12px] font-semibold tracking-wider mb-2 ${isDarkBg ? "text-white/60" : "text-[#6e6e73]"}`}>{card.tag}</span>}
+        <h4 className={`text-[28px] font-semibold tracking-tight leading-[34px] ${isDarkBg ? "text-white" : "text-[#1d1d1f]"}`}>{card.title}</h4>
+        {card.subtitle && <p className={`mt-2 text-[14px] font-medium leading-[20px] ${isDarkBg ? "text-white/70" : "text-[#6e6e73]"}`}>{card.subtitle}</p>}
+      </div>
+      <div className="absolute inset-0 z-0">
+        <img src={card.img} alt={card.title} className="w-full h-full object-cover" />
+      </div>
+    </div>
+  );
+}
+
+function AppleDifferent({ card, onClick }) {
+  return (
+    <div onClick={onClick} className="relative sm:w-[309px] h-[240px] rounded-[25px] bg-white shadow-sm border border-gray-100/46 p-8 flex flex-col justify-start gap-3 snap-start shrink-0 transition-all duration-300 hover:shadow-md hover:scale-[1.01] cursor-pointer select-none">
+      <div><IconSelector type={card.iconType} /></div>
+      <p className="text-[24px] font-semibold leading-[25px] tracking-[-0.21px] normal-case text-left">
+        {card.titleNormal && <span>{card.titleNormal}</span>}
+        {card.titleHighlight && <span className={`${card.highlightColor} font-semibold`}>{card.titleHighlight}</span>}
+        {card.titleMiddle && <span>{card.titleMiddle}</span>}
+        {card.titleHighlight2 && <span className={`${card.highlightColor} font-semibold`}>{card.titleHighlight2}</span>}
+        {card.titleMiddle2 && <span>{card.titleMiddle2}</span>}
+        {card.titleHighlight3 && <span className={`${card.highlightColor} font-semibold`}>{card.titleHighlight3}</span>}
+        {card.titleEnd && <span>{card.titleEnd}</span>}
+      </p>
+    </div>
+  );
+}
+
+
+export function HorizontalSlider({ children, containerClass = "" }) {
+
   const scrollRef = useRef(null);
   const [scrollState, setScrollState] = useState({ left: false, right: true });
 
@@ -226,210 +329,72 @@ function HorizontalSlider({ children, containerClass = "" }) {
   );
 }
 
-// ==========================================
-// Main Store Component
-// ==========================================
-export default function Store() {
-  const [activeCategory, setActiveCategory] = useState(0);
 
-  const handleDifferentCardClick = (link) => {
-    window.location.hash = link;
+export function HorizontalSlider1 ({ children, containerClass = "" }) {
+  const scrollRef = useRef(null);
+  const [scrollState, setScrollState] = useState({ left: false, right: true });
+
+  const checkScrollLimits = () => {
+    if (scrollRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+      setScrollState({
+        left: scrollLeft > 10,
+        right: scrollLeft + clientWidth < scrollWidth - 10,
+      });
+    }
+  };
+
+  useEffect(() => {
+    const container = scrollRef.current;
+    if (!container) return;
+    container.addEventListener("scroll", checkScrollLimits);
+    const timer = setTimeout(checkScrollLimits, 100);
+    return () => {
+      container.removeEventListener("scroll", checkScrollLimits);
+      clearTimeout(timer);
+    };
+  }, []);
+
+  const handleScroll = (direction) => {
+    if (scrollRef.current) {
+      const { clientWidth } = scrollRef.current;
+      const amount = direction === "left" ? -clientWidth * 0.5 : clientWidth * 0.5;
+      scrollRef.current.scrollBy({ left: amount, behavior: "smooth" });
+    }
   };
 
   return (
-    <div className="min-h-screen bg-[#f5f5f7] text-[#1d1d1f] font-sans antialiased pb-24 pt-11">
-      <AnnouncementRibbon />
-
-      <div className="mx-auto max-w-[89%] px-6 lg:px-0 space-y-16">
-        <StoreHeader />
-
-        {/* Categories Section */}
-        <div className="-mt-16">
-          <HorizontalSlider containerClass="gap-6 text-[16px]">
-            {categories.map((item, index) => (
-              <CategoryCard
-                key={item.name}
-                item={item}
-                active={activeCategory === index}
-                onClick={() => setActiveCategory(index)}
-              />
-            ))}
-          </HorizontalSlider>
-        </div>
-
-        {/* Product Showcase Section */}
-        <div className="space-y-5">
-          <h3 className="text-[24px] md:text-[28px] font-semibold tracking-tight text-[#6e6e73]">
-            <span className="text-[#1d1d1f]">The latest.</span> Take a look at what’s new, right now.
-          </h3>
-          <HorizontalSlider>
-            {latestProducts.map((product, idx) => (
-              <ProductCard key={product.title || idx} product={product} />
-            ))}
-          </HorizontalSlider>
-        </div>
-
-        {/* Help & Support Section */}
-        <div className="space-y-5">
-          <h3 className="text-[24px] md:text-[28px] font-semibold tracking-tight text-[#6e6e73]">
-            <span className="text-[#1d1d1f]">Help is here.</span> Whenever and however you need it.
-          </h3>
-          <HorizontalSlider>
-            {helpCards.map((card, idx) => (
-              <HelpCard key={card.title || idx} card={card} />
-            ))}
-          </HorizontalSlider>
-        </div>
-
-        {/* Apple Store Difference Section */}
-        <div className="space-y-6">
-          <h3 className="text-[24px] md:text-[28px] font-semibold tracking-tight text-[#6e6e73]">
-            <span className="text-[#1d1d1f]">The Apple Store difference.</span> Even more reasons to shop with us.
-          </h3>
-
-          <HorizontalSlider>
-            {appleDifferent.map((card, idx) => (
-              <AppleDifferent
-                key={idx}
-                card={card}
-                onClick={() => handleDifferentCardClick(card.link)}
-              />
-            ))}
-          </HorizontalSlider>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// ==========================================
-// Sub-Components
-// ==========================================
-function AnnouncementRibbon() {
-  return (
-    <div className="w-full bg-white py-5 text-center shadow-sm">
-      <p className="inline-flex items-center justify-center gap-1 px-4 font-normal text-[#1d1d1f] text-[14px] leading-[21px]">
-        <span>Now you can buy Apple Watch<sup className="mx-[1px] text-[9px]">◊</sup> with education savings.<sup className="mx-[1px] text-[9px]">Δ</sup></span>
-        <a href="#learn-more" className="group ml-0.5 inline-flex items-center gap-0.5 text-[#0066cc] hover:underline">
-          Learn more
-          <svg className="h-3 w-3 text-[#0066cc] transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}>
-            <circle cx="12" cy="12" r="10" />
-            <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v8M8 12h8" />
+    <div className="relative group/slider w-full">
+      {scrollState.left && (
+        <button
+          onClick={() => handleScroll("left")}
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-30 hidden md:flex h-12 w-12 items-center justify-center rounded-full bg-[#e8e8ed]/80 hover:bg-[#e8e8ed] backdrop-blur-md shadow-sm opacity-0 group-hover/slider:opacity-100 transition-all duration-200 cursor-pointer"
+          aria-label="Scroll Left"
+        >
+          <svg className="w-6 h-6 stroke-[#1d1d1f]" fill="none" viewBox="0 0 24 24" strokeWidth={2.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
           </svg>
-        </a>
-      </p>
-    </div>
-  );
-}
+        </button>
+      )}
 
-function StoreHeader() {
-  return (
-    <div className="pt-21 pb-1 flex flex-col md:flex-row md:justify-between md:items-baseline gap-4">
-      <h1 className="text-[64px] md:text-[80px] font-semibold tracking-tight text-[#1d1d1f] leading-none">Store</h1>
-      <div className="md:text-right max-w-sm pb-12 md:-translate-y-[32%]">
-        <h2 className="text-[28px] font-semibold leading-[32px] tracking-[0.196px] text-[#1d1d1f]">
-          The best way to buy the<br className="hidden md:block" />products you love.
-        </h2>
-        <div className="mt-4 space-y-2">
-          {["Connect with a Specialist", "Find an Apple Store"].map((text, i) => (
-            <React.Fragment key={text}>
-              {i > 0 && <br />}
-              <a href={`#${text.toLowerCase().replace(/ /g, "-")}`} className="inline-flex items-center text-[14px] text-[#0066cc] hover:underline group">
-                {text}
-                <svg className="ml-1 w-[12px] h-[12px] stroke-current transition-transform duration-200 group-hover:-translate-y-[1px] group-hover:translate-x-[1px]" fill="none" viewBox="0 0 24 24" strokeWidth={2.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M9 7h8v8" />
-                </svg>
-              </a>
-            </React.Fragment>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function CategoryCard({ item, active, onClick }) {
-  return (
-    <div onClick={onClick} className="flex flex-col items-center text-center min-w-[120px] snap-start cursor-pointer group/item select-none">
-      <div className="w-[120px] h-[78px] flex items-center justify-center rounded-xl">
-        <img src={item.img} alt={item.name} className="max-h-[76px] max-w-full duration-300" />
-      </div>
-      <span className={`mt-3 text-[13px] font-semibold tracking-tight transition-colors text-[#1d1d1f]`}>{item.name}</span>
-    </div>
-  );
-}
-
-function ProductCard({ product }) {
-  const isDarkBg = product.bgClass.includes("bg-black");
-  return (
-    <div className={`relative w-[340px] sm:w-[400px] h-[500px] rounded-[25px] px-8 pt-8 pb-8 overflow-hidden snap-start shrink-0 transition-all duration-500 hover:scale-[1.01] shadow-sm hover:shadow-md ${product.bgClass}`}>
-      <div className="relative z-20 flex flex-col">
-        {product.tag && <span className="mb-2 text-[14px] font-semibold uppercase tracking-[0.12em] text-[#bf4800]">{product.tag}</span>}
-        <h4 className={`text-[28px] font-bold leading-[32px] tracking-[0.196px] ${isDarkBg ? "text-white" : "text-[#1d1d1f]"}`}>{product.title}</h4>
-        <p className={`mt-1 text-[14px] font-bold leading-[18px] ${isDarkBg ? "text-white/90" : "text-[#1d1d1f]"}`}>{product.subtitle}</p>
-        <p className={`mt-[3px] text-[14px] font-normal leading-[20px] ${isDarkBg ? "text-[#a1a1a6]" : "text-[#6e6e73]"}`}>{product.price}</p>
-      </div>
-      <div className="absolute inset-x-0 bottom-0 top-[18%] z-0 flex items-center justify-center overflow-hidden pointer-events-none">
-        <img src={product.img} alt={product.title} className="w-full h-auto object-contain -translate-y-6 transition-transform duration-500 group-hover:scale-[1.03]" />
-      </div>
-    </div>
-  );
-}
-
-function HelpCard({ card }) {
-  const isDarkBg = card.bgClass.includes("bg-black");
-  return (
-    <div className={`relative w-[380px] sm:w-[480px] h-[500px] rounded-[25px] px-8 pt-8 pb-8 overflow-hidden snap-start shrink-0 transition-all duration-500 hover:scale-[1.01] shadow-sm hover:shadow-md ${card.bgClass}`}>
-      <div className="relative z-20 flex flex-col max-w-[320px]">
-        {card.tag && (
-          <span className={`text-[12px] font-semibold tracking-wider mb-2 ${isDarkBg ? "text-white/60" : "text-[#6e6e73]"}`}>
-            {card.tag}
-          </span>
-        )}
-        <h4 className={`text-[28px] font-semibold tracking-tight leading-[34px] ${isDarkBg ? "text-white" : "text-[#1d1d1f]"}`}>
-          {card.title}
-        </h4>
-        {card.subtitle && (
-          <p className={`mt-2 text-[14px] font-medium leading-[20px] ${isDarkBg ? "text-white/70" : "text-[#6e6e73]"}`}>
-            {card.subtitle}
-          </p>
-        )}
-      </div>
-      <div className="absolute inset-0 z-0">
-        <img src={card.img} alt={card.title} className="w-full h-full object-cover" />
-      </div>
-    </div>
-  );
-}
-
-function AppleDifferent({ card, onClick }) {
-  return (
-    <div
-      onClick={onClick}
-      className="relative sm:w-[309px] h-[240px] rounded-[25px] bg-white shadow-sm border border-gray-100/46 p-8 flex flex-col justify-start gap-3 snap-start shrink-0 transition-all duration-300 hover:shadow-md hover:scale-[1.01] cursor-pointer select-none"
-    >
-      <div>
-        <IconSelector type={card.iconType} className={card.iconColor} />
-      </div>
-
-      <p
-        className="text-[24px] font-semibold leading-[25px] tracking-[-0.21px] normal-case text-left"
-        style={{ font: '"SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif' }}
+      <div
+        ref={scrollRef}
+        className={`flex gap-4 overflow-x-auto scroll-smooth snap-x pb-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden ${containerClass}`}
       >
-        {card.titleNormal && <span>{card.titleNormal}</span>}
-        {card.titleHighlight && (
-          <span className={`${card.highlightColor} font-semibold`}>{card.titleHighlight}</span>
-        )}
-        {card.titleMiddle && <span>{card.titleMiddle}</span>}
-        {card.titleHighlight2 && (
-          <span className={`${card.highlightColor} font-semibold`}>{card.titleHighlight2}</span>
-        )}
-        {card.titleMiddle2 && <span>{card.titleMiddle2}</span>}
-        {card.titleHighlight3 && (
-          <span className={`${card.highlightColor} font-semibold`}>{card.titleHighlight3}</span>
-        )}
-        {card.titleEnd && <span>{card.titleEnd}</span>}
-      </p>
+        {children}
+      </div>
+
+      {scrollState.right && (
+        <button
+          onClick={() => handleScroll("right")}
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-30 hidden md:flex h-12 w-12 items-center justify-center rounded-full bg-[#e8e8ed]/80 hover:bg-[#e8e8ed] backdrop-blur-md shadow-sm opacity-0 group-hover/slider:opacity-100 transition-all duration-200 cursor-pointer"
+          aria-label="Scroll Right"
+        >
+          <svg className="w-6 h-6 stroke-[#1d1d1f]" fill="none" viewBox="0 0 24 24" strokeWidth={2.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+          </svg>
+        </button>
+      )}
     </div>
   );
 }
