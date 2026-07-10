@@ -11,12 +11,12 @@ const EXPERIENCE_ITEMS = [
     
     titleHtml: (
       <h4 className="text-[24px] md:text-[28px] font-semibold leading-[32px] tracking-tight text-[#1d1d1f]">
-        <span className="bg-gradient-to-r from-[#4361ee] via-[#9b5de5] to-[#f15bb5] bg-clip-text text-transparent">
-          Apple Intelligence.
-        </span>
-        <br />
-        Create, communicate, and get things done effortlessly.²
-      </h4>
+  <span className="bg-gradient-to-r from-[#4361ee] via-[#9b5de5] to-[#f15bb5] bg-clip-text text-transparent">
+    Apple Intelligence.
+  </span>
+  <br />
+  Create, communicate, and get things done effortlessly.²
+</h4>
     ),
     image: "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/store-card-50-apple-intelligence-202510?wid=960&hei=1000&fmt=jpeg&qlt=90&.v=SFNxMjRYSTFLdjBJZG1UYjBKRUNDalZCM0g0MTRQL0NONjZoQUpUNEpyWXluTDY3NjNOVTV6d29lV0RZMDd0SXAwckMxbExydC8yeDhtUjlFVHdKVm16RG1HVDZIUUdmQ3JLV1liN0t6d0huMXZMc042Y1VXcXBxaFlBTkJNRVg",
     imgClass: "w-full h-full object-cover object-bottom",

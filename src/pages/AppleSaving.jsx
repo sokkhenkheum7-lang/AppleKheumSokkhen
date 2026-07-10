@@ -75,7 +75,7 @@ function SavingCard({ item }) {
           </span>
         )}
         
-        <h4 className="text-[24px] md:text-[28px] font-bold leading-[32px] tracking-tight text-[#1d1d1f]">
+        <h4 className=" text-[24px] md:text-[28px] font-semibold leading-[32px] tracking-tight text-[#1d1d1f]">
           {title}
         </h4>
 
