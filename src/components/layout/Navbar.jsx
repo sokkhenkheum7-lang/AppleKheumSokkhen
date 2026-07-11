@@ -131,6 +131,14 @@ function Navbar() {
                 >
                   {item.label}
                 </button>
+
+                 {/* mac */}
+                <button
+                  onClick={() => handleNavigation(item.key === "mac" ? "/mac" : "/")}
+                  className="text-3xl font-medium text-white hover:text-gray-400 text-left w-full"
+                >
+                  {item.label}
+                </button>
               </li>
             ))}
           </ul>

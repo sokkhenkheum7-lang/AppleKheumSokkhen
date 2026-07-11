@@ -2,6 +2,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/layout/Navbar"; // Adjust this path to match your Navbar location
 import Home from "./pages/Home";
 import Store from "./pages/Store";// Make sure to create or import your Store page component
+import Mac from "./pages/Mac"
+
 
 function App() {
   return (
@@ -14,9 +16,11 @@ function App() {
       <Routes>
         {/* Main Home Route */}
         <Route path="/" element={<Home />} />
-        
+
         {/* Your new Store Route */}
         <Route path="/store" element={<Store />} />
+        <Route path="/mac" element={<Mac />} />
+
       </Routes>
     </BrowserRouter>
   );

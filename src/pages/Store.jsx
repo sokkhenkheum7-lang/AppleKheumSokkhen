@@ -4,7 +4,7 @@ import Lounder from "./lounder";
 import AppleExperience from "./AppleExperience";
 import AppleSaving from "./AppleSaving";
 import Quick_link from "./quick_link";
-import Footer from "../components/layout/Footer";
+import Footer_1 from "./Footer_1";
 
 // Import your local icon files from your assets folder here:
 import TradeInIcon from "../assets/icon/cphone1.jpg";
@@ -139,7 +139,7 @@ export default function Store() {
        
         <AppleSaving/>
          <Quick_link/>
-         <Footer/>
+         <Footer_1/>
       </div>
      
     </div>
