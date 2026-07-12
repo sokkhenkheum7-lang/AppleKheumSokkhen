@@ -30,7 +30,7 @@ const StoreHeader = () => {
         </h1>
         
         <div className="md:text-right max-w-sm pb-12 md:-translate-y-[32%]">
-          <h2 className="text-[28px] font-semibold leading-[32px] tracking-[0.196px] text-[#1d1d1f]">
+          <h2 className="text-[28px] font-semibold leading-[31px] tracking-[0.196px] text-[#1d1d1f]">
             The best way to buy the<br className="hidden md:block" /> products you love.
           </h2>
           
