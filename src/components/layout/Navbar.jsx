@@ -81,8 +81,8 @@ function Navbar() {
                 <button
                   onClick={() => item.key === "store" && handleNavigation("/store")}
                   className={`text-[12px] font-normal tracking-wide transition-colors duration-200 ${activeOverlay || !isHomePage
-                      ? "text-[#1d1d1f]/80 hover:text-black"
-                      : "text-white/80 hover:text-white"
+                    ? "text-[#1d1d1f]/80 hover:text-black"
+                    : "text-white/80 hover:text-white"
                     }`}
                 >
                   {item.label}
@@ -113,6 +113,7 @@ function Navbar() {
       </header>
 
       {/* Mobile Menu */}
+
       <div
         className={`fixed inset-0 z-40 bg-black/80 backdrop-blur-2xl transition-all duration-500 md:hidden ${isOpen ? "visible opacity-100" : "pointer-events-none invisible opacity-0"
           }`}
@@ -126,15 +127,16 @@ function Navbar() {
                 style={{ transitionDelay: `${index * 40}ms` }}
               >
                 <button
-                  onClick={() => handleNavigation(item.key === "store" ? "/store" : "/")}
-                  className="text-3xl font-medium text-white hover:text-gray-400 text-left w-full"
-                >
-                  {item.label}
-                </button>
-
-                 {/* mac */}
-                <button
-                  onClick={() => handleNavigation(item.key === "mac" ? "/mac" : "/")}
+                  onClick={() => {
+                    // លក្ខខណ្ឌប្តូរទៅកាន់ Route តាម Key នីមួយៗ
+                    if (item.key === "store") {
+                      handleNavigation("/store");
+                    } else if (item.key === "mac") {
+                      handleNavigation("/mac");
+                    } else {
+                      handleNavigation("/"); // ត្រឡប់ទៅ Home សម្រាប់ទំព័រផ្សេងទៀតដែលមិនទាន់មាន
+                    }
+                  }}
                   className="text-3xl font-medium text-white hover:text-gray-400 text-left w-full"
                 >
                   {item.label}

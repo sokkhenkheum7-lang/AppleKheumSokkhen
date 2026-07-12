@@ -135,8 +135,6 @@ export default function Store() {
         <Accessories />
         <Lounder/>
         <AppleExperience />
-       
-       
         <AppleSaving/>
          <Quick_link/>
          <Footer_1/>

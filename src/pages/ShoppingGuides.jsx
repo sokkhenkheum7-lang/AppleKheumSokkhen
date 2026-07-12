@@ -1,6 +1,7 @@
-// ShoppingGuides.jsx
+
 import React from "react";
 import { HorizontalSlider } from "./Store"; 
+import { image } from "framer-motion/client";
 
 
 const guideCards = [
@@ -28,6 +29,31 @@ const guideCards = [
     titleColor: "text-[#1d1d1f]",
     isSpecialTitle: true, 
   },
+  {
+    id: 4,
+    title: "Shop with a Specialist over video.",
+    description :"Choose your next Mac in a guided, one-way video session",
+    img: "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/mac-card-50-specialist-video-202601?wid=1920&hei=2000&fmt=p-jpg&qlt=95&.v=Z21zRjYyUFB6Q1EySlkzM3R1YWFwNWNpZkpUQmxQNC9tSlZ1UnI1SUJjQ3BUWjNRQllHbTRnVklTUHgxZFZKVVRNTklacmNaZkJIdGV2STdtOWlndFh5WkRYL01YbGlvSEpEenZPdWxFRzdwWnBnTkJ3Zkgvb2tWNFpLQjkxeUs",
+    titleColor: "text-[#1d1d1f]",
+    isSpecialTitle: false,
+  },
+  {
+    id: 5,
+    tag: "MAC SPECAILIST",
+    title: "Shop one on with a Specailist.Online or in a store.",
+    img: "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/mac-card-50-specialist-help-202512?wid=4000&hei=4167&fmt=p-jpg&qlt=95&.v=Z21zRjYyUFB6Q1EySlkzM3R1YWFwd2FaZDRpa1lUZlh6RlNrVzhqaVZCMTFnTXVrS1pHaUpMbTA1SzluZTBXQ01JTnhCV3R3cEpHRk9HWDdDb0hIQnBoRHhhSmFtRnBGSUdxRDY0UFpvZTNiT20ycUFxekdxMVM5d3dhVDBKMTY",
+    titleColor: "text-[#1d1d1f]",
+    isSpecialTitle: false,
+  },
+  {
+    id: 4,
+    tag: "MAC SPECAILIST",
+    title: "Shop with a Specialist over video.",
+    description :"Choose your next Mac in a guided, one-way video session",
+    img: "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/store-card-40-education-202605?wid=800&hei=1000&fmt=p-jpg&qlt=95&.v=TysyM3c4L0xvQ1dZWVNWTXZ0ekxPTlVUNDdLczRTWHR5WE9ncHJGK2xwMzkvamYzRzRvcFlnajNacmhEOC9BeHg4ZHpEbm5XWGdaM3BiNVRDaG55UkpoSTRoODlLK2NFNmp4c0hWV3d4VCs1dDgvV3BhU1hoSzFPUEZjam5HQ2g",
+    titleColor: "text-[#1d1d1f]",
+    isSpecialTitle: false,
+  },
 ];
 
 export default function ShoppingGuides() {
@@ -53,12 +79,12 @@ export default function ShoppingGuides() {
 // ==========================================
 function GuideCard({ card }) {
   return (
-    <div className="relative w-[340px] sm:w-[430px] h-[500px] rounded-[24px] bg-white border border-[#e8e8ed] overflow-hidden snap-start shrink-0 transition-all duration-300 hover:shadow-md hover:scale-[1.005] select-none flex flex-col justify-between group">
+    <div className="relative w-[340px] sm:w-[440px] h-[453px] rounded-[24px] bg-white border border-[#e8e8ed] overflow-hidden snap-start shrink-0 transition-all duration-300 hover:shadow-md hover:scale-[1.005] select-none flex flex-col justify-between group">
       
      
-      <div className="p-4 relative z-8 flex flex-col max-w-[380px]">
+      <div className="p-9 pl-10 relative z-10 flex flex-col max-w-[380px]">
         {card.tag ? (
-          <span className="text-[12px] font-semibold tracking-wider text-[#6e6e73] uppercase mb-1">
+          <span className="text-[12px] font-semibold tracking-wider uppercase mb-1">
             {card.tag}
           </span>
         ) : (
@@ -77,6 +103,11 @@ function GuideCard({ card }) {
             <span className={card.titleColor}>{card.title}</span>
           )}
         </h4>
+        {card.description && (
+          <p className="text-[14px] sm:text-[16px] text-[#1d1d1f] leading-[20px] sm:leading-[22px] mt-2 text-left font-normal max-w-[320px]">
+            {card.description}
+          </p>
+        )}
       </div>
 
       
@@ -84,7 +115,7 @@ function GuideCard({ card }) {
         <img
           src={card.img}
           alt={card.title}
-          className="w-full h-full object-cover object-bottom transition-transform duration-500 group-hover:scale-[1.01]"
+          className="w-[370px] object-cover object-bottom transition-transform duration-500 "
         />
       </div>
 

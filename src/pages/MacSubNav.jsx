@@ -14,14 +14,14 @@ const subMenuItems = [
 
 export default function MacSubNav({ activeTab, onTabClick }) {
   return (
-    <div className="sticky top-0 bg-[#f5f5f7]/80 backdrop-blur-md z-40 border-[#d2d2d7]/30 pb-4 pt-2 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+    <div className="w-full bg-[#f5f5f7] border-[#d2d2d7]/30 pb-4 pt-2 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
       <div className="flex gap-8 text-[14px] font-normal min-w-max">
         {subMenuItems.map((item, index) => {
           const isActive = activeTab === index;
           return (
             <button
               key={item.name}
-              onClick={() => onTabClick(index)} // ហៅ Function Scroll ពេលចុច
+              onClick={() => onTabClick(index)}
               className={`relative pb-2 transition-colors duration-300 select-none cursor-pointer text-left ${
                 isActive 
                   ? "text-[#1d1d1f] font-medium" 
