@@ -192,7 +192,7 @@ function MacModelCard({ mac }) {
                 ${
                   selectedColor === index
                     ? ""
-                    : "hover:opacity-80"
+                    : "cursor-pointer hover:opacity-80"
                 }
               `}
             />

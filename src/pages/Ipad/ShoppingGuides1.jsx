@@ -1,10 +1,10 @@
-// MacSubNav.jsx
+// IpadSubNav.jsx របស់អ្នករក្សាទុកដដែល
 import React from "react";
 
 const subMenuItems = [
-  { name: "All Models" },
-  { name: "Shopping Guides" },
-  { name: "Ways to Save" },
+  { name: "All Models" },          // index 0
+  { name: "Shopping Guides" },      // index 1
+  { name: "Ways to Save" },         // index 2
   { name: "The Apple Store Difference" },
   { name: "Accessories" },
   { name: "Setup and Support" },
@@ -12,9 +12,9 @@ const subMenuItems = [
   { name: "Special Stores" },
 ];
 
-export default function MacSubNav({ activeTab, onTabClick }) {
+export default function IpadSubNav({ activeTab, onTabClick }) {
   return (
-    <div className="w-full bg-[#f5f5f7] border-[#d2d2d7]/30 pb-4 pt-6 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+    <div className="w-full pb-4 pt-9 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
       <div className="flex gap-8 text-[14px] font-normal min-w-max">
         {subMenuItems.map((item, index) => {
           const isActive = activeTab === index;

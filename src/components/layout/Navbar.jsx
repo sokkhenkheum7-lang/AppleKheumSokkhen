@@ -113,11 +113,7 @@ function Navbar() {
       </header>
 
       {/* Mobile Menu */}
-
-      <div
-        className={`fixed inset-0 z-40 bg-black/80 backdrop-blur-2xl transition-all duration-500 md:hidden ${isOpen ? "visible opacity-100" : "pointer-events-none invisible opacity-0"
-          }`}
-      >
+      <div className={`fixed inset-0 z-40 bg-black/80 backdrop-blur-2xl transition-all duration-500 md:hidden ${isOpen ? "visible opacity-100" : "pointer-events-none invisible opacity-0"}`}>
         <div className="flex h-full flex-col overflow-y-auto px-8 pt-20">
           <ul className="space-y-6">
             {navItems.map((item, index) => (
@@ -128,13 +124,15 @@ function Navbar() {
               >
                 <button
                   onClick={() => {
-                    // លក្ខខណ្ឌប្តូរទៅកាន់ Route តាម Key នីមួយៗ
+                  
                     if (item.key === "store") {
                       handleNavigation("/store");
                     } else if (item.key === "mac") {
                       handleNavigation("/mac");
+                    } else if (item.key === "ipad") {
+                      handleNavigation("/ipad"); // Added routing logic for iPad
                     } else {
-                      handleNavigation("/"); // ត្រឡប់ទៅ Home សម្រាប់ទំព័រផ្សេងទៀតដែលមិនទាន់មាន
+                      handleNavigation("/");
                     }
                   }}
                   className="text-3xl font-medium text-white hover:text-gray-400 text-left w-full"

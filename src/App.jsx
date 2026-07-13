@@ -1,26 +1,27 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Navbar from "./components/layout/Navbar"; // Adjust this path to match your Navbar location
+import Navbar from "./components/layout/Navbar"; 
 import Home from "./pages/Home";
-import Store from "./pages/Store";// Make sure to create or import your Store page component
-import Mac from "./pages/Mac"
-
+import Store from "./pages/Store";
+import Mac from "./pages/Mac";
+// 1. IMPORT YOUR IPAD PAGE COMPONENT HERE
+import Ipad from "./pages/Ipad/ipad";
 
 function App() {
   return (
     <BrowserRouter>
-      {/* Placing Navbar here ensures it is inside the Router context, 
-        which fixes the useNavigate() crash! 
-      */}
+      {/* Navbar sits inside BrowserRouter so useNavigate works flawlessly */}
       <Navbar />
 
       <Routes>
         {/* Main Home Route */}
         <Route path="/" element={<Home />} />
 
-        {/* Your new Store Route */}
+        {/* Store & Product Routes */}
         <Route path="/store" element={<Store />} />
         <Route path="/mac" element={<Mac />} />
-
+        
+        {/* 2. ROUTE CHANGED FROM <iPad /> TO <Ipad /> TO MATCH YOUR COMPONENT DEFINITION */}
+        <Route path="/ipad" element={<Ipad />} />
       </Routes>
     </BrowserRouter>
   );
