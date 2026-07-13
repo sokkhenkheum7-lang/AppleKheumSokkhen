@@ -93,7 +93,7 @@ export default function Mac() {
       <AnnouncementRibbon />
 
      
-      <div className="mx-auto max-w-[95%] lg:max-w-[1920px] px-0 md:px-10 xl:px-20 mt-1 space-y-10">
+      <div className="mx-auto max-w-[89%] px-6 lg:px-0">
         
         <StoreHeader />
 

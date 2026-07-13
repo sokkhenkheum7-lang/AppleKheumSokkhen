@@ -32,7 +32,7 @@ const experienceCards = [
     isGradientCard: false,
   },
   {
-    id: 5, // កែ id មិនឱ្យស្ទួន
+    id: 5, 
     isStackedCard: true,
     subCards: [
       {
@@ -51,7 +51,7 @@ const experienceCards = [
     ]
   },
   {
-    id: 6, // កែ id មិនឱ្យស្ទួន
+    id: 6, 
     tag: "",
     title: "Six Apple services. One easy subscription.",
     img: "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/store-card-50-subscriptions-202605?wid=960&hei=1000&fmt=p-jpg&qlt=95&.v=WW05TjdlcC83b2p3NDlrR3ZVbk1xYk4zaUxnUFVTeUlGeUNxWkhYTVpQc3l0U1ZtOFgzWEVDRzk0cFh3T2wrcVN5aWNYUFpIbkFhdm03T3BzSjdVSTI2SnE5cVJVVzdjaUpRbUpzRk5lMEZYWTd1bDlYVlB5S1l0U0hTeGxwTi8",
@@ -81,16 +81,16 @@ function ExperienceCard({ card }) {
  
   if (card.isStackedCard) {
     return (
-      <div className="w-[380px] sm:w-[460px] h-[500px] flex flex-col gap-5 snap-start shrink-0 select-none">
+      <div className="w-[380px] sm:w-[460px] h-[479px] flex flex-col gap-5 snap-start shrink-0 select-none">
         {card.subCards.map((subCard) => (
           <div 
             key={subCard.id}
             className="relative flex-1 rounded-[24px] bg-[#121212] border border-black/10 overflow-hidden group transition-all duration-300 hover:shadow-md hover:scale-[1.005]"
           >
-            {/* ផ្នែកអក្សរព័ត៌មានខាងក្នុងកាតជាន់នីមួយៗ */}
+           
             <div className="p-7 pl-10 relative z-10 flex flex-col max-w-[340px] text-left">
               {subCard.tag && (
-                <span className="text-[11px] font-semibold tracking-wider text-[#86868b] uppercase mb-1">
+                <span className="text-[11px] font-semibold tracking-wider text-white uppercase mb-1">
                   {subCard.tag}
                 </span>
               )}
@@ -98,7 +98,7 @@ function ExperienceCard({ card }) {
                 {subCard.title}
               </h4>
               {subCard.description && (
-                <p className="text-[13px] text-[#86868b] font-normal leading-[18px] mt-1.5">
+                <p className="text-[13px] text-white font-normal leading-[18px] mt-1.5">
                   {subCard.description}
                 </p>
               )}
@@ -121,7 +121,7 @@ function ExperienceCard({ card }) {
  
   return (
     <div 
-      className={`relative w-[380px] sm:w-[460px] h-[500px] rounded-[24px] border border-[#e8e8ed] overflow-hidden snap-start shrink-0 transition-all duration-300 hover:shadow-md hover:scale-[1.005] select-none flex flex-col justify-between group
+      className={`relative w-[380px] sm:w-[460px] h-[479px] rounded-[24px] border border-[#e8e8ed] overflow-hidden snap-start shrink-0 transition-all duration-300 hover:shadow-md hover:scale-[1.005] select-none flex flex-col justify-between group
         ${card.isGradientCard ? "bg-gradient-to-b from-[#a2f3ec] via-[#a8f5ee] to-[#7eece0] border-transparent" : "bg-white"}
       `}
     >
@@ -140,7 +140,7 @@ function ExperienceCard({ card }) {
         </h4>
 
         {card.description && (
-          <p className="text-[14px] text-gray-800 leading-relaxed mt-3 text-left font-normal">
+          <p className="text-[12x] text-gray-800 leading-relaxed mt-3 text-left font-normal">
             {card.description}
           </p>
         )}

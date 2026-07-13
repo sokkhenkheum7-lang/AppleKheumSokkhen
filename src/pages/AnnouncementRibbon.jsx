@@ -3,18 +3,18 @@ import React from "react";
 
 export default function AnnouncementRibbon() {
   return (
-    <div className="w-full bg-white py-5 text-center shadow-sm">
-      <p className="inline-flex items-center justify-center gap-1 px-4 font-normal text-[#1d1d1f] text-[14px] leading-[21px]">
+    <div className="w-full bg-white py-7 border-b border-gray-100 ">
+      <div className="mx-auto max-w-[89%] px-6 lg:px-0 text-center">
+      <p className="inline-block text-center font-normal text-[#1d1d1f] text-[13px] md:text-[14px] leading-relaxed">
         <span>
-          Now you can buy Apple Watch
-          <sup className="mx-[1px] text-[9px]">◊</sup> with education savings.
-          <sup className="mx-[1px] text-[9px]">Δ</sup>
+          Trade in your eligible Mac for credit toward a new one.
+          <sup className="mx-[1px] text-[9px]">◊</sup> 
         </span>
         <a
           href="#learn-more"
           className="group ml-0.5 inline-flex items-center gap-0.5 text-[#0066cc] hover:underline"
         >
-          Learn more
+          See all Mac Value
           <svg
             className="h-3 w-3 text-[#0066cc]"
             viewBox="0 0 24 24"
@@ -27,6 +27,7 @@ export default function AnnouncementRibbon() {
           </svg>
         </a>
       </p>
+      </div>
     </div>
   );
 }
