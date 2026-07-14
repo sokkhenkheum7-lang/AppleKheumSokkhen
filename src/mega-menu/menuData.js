@@ -1,5 +1,4 @@
-// src/components/layout/menuData.js (ឬទីតាំងដែលអ្នកចង់ដាក់)
-
+// src/components/layout/menuData.js 
 export const menuData = {
   store: {
     columns: [

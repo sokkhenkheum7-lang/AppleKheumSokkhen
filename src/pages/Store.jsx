@@ -4,7 +4,7 @@ import Lounder from "./lounder";
 import AppleExperience from "./AppleExperience";
 import AppleSaving from "./AppleSaving";
 import Quick_link from "./quick_link";
-import Footer_1 from "./Footer_1";
+import Footer from "../components/layout/Footer";
 
 // Import your local icon files from your assets folder here:
 import TradeInIcon from "../assets/icon/cphone1.jpg";
@@ -58,9 +58,6 @@ const appleDifferent = [
   { iconType: "Appleorange", titleNormal: "Customize", titleHighlight: "a Mac and style an Apple Watch just for them.", highlightColor: "text-[#3F6EB8]" }
 ];
 
-// ==========================================
-// EXPORTING THE SLIDER SO ACCESSORIES CAN USE IT
-// ==========================================
 
 
 // ==========================================
@@ -137,7 +134,7 @@ export default function Store() {
         <AppleExperience />
         <AppleSaving/>
          <Quick_link/>
-         <Footer_1/>
+         <Footer/>
       </div>
      
     </div>

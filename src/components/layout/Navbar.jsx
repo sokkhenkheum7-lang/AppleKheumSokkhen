@@ -35,7 +35,6 @@ function Navbar() {
 
   const menuKeys = [...navItems.map((item) => item.key), "search", "bag"];
 
-
   const logoClass =
     activeOverlay || !isHomePage || isOpen
       ? "brightness-0 opacity-80 hover:opacity-100"
@@ -43,7 +42,6 @@ function Navbar() {
 
   const iconClass = isOpen ? "brightness-0" : logoClass;
 
-  
   useEffect(() => {
     if (isOpen) {
       setActiveOverlay(null);
@@ -67,22 +65,26 @@ function Navbar() {
     navigate(path);
   };
 
+  // កែសម្រួលត្រង់នេះ៖ ចាប់លក្ខខណ្ឌ Sub Link ឱ្យរត់ទៅ Route ថ្មី /MacMenu1
   const handleSubLinkClick = (linkName) => {
     const formattedLink = linkName.toLowerCase().replace(/\s+/g, "");
     if (formattedLink === "shopthelatest") {
       handleNavigation("/store");
-    } else if (formattedLink === "exploreallmac" || formattedLink === "mac") {
-      handleNavigation("/mac");
+    } else if (
+      formattedLink === "exploreallmac" || 
+      formattedLink === "exploremac" || 
+      formattedLink === "mac"
+    ) {
+      handleNavigation("/MacMenu1");
     } else if (formattedLink === "exploreallipad" || formattedLink === "ipad") {
       handleNavigation("/ipad");
     } else {
-      handleNavigation("/");
-    }
+      handleNavigation("/MacMenu1");
+    } 
   };
 
   return (
     <>
-    
       <Backdrop open={activeOverlay !== null && !isOpen} onClose={() => setActiveOverlay(null)} />
 
       <header
@@ -108,7 +110,7 @@ function Navbar() {
             <img src={hero} alt="Apple" className={`h-4.5 transition duration-300 ${logoClass}`} />
           </button>
 
-          {/* Centered Menu Items */}
+          {/* Centered Menu Items (Desktop) - កែសម្រួល logic ចុចឱ្យរត់ទៅរកផ្លូវថ្មី */}
           <ul className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-9 md:flex">
             {navItems.map((item) => (
               <li
@@ -116,7 +118,15 @@ function Navbar() {
                 onMouseEnter={() => setActiveOverlay(item.key)}
               >
                 <button
-                  onClick={() => item.key === "store" && handleNavigation("/store")}
+                  onClick={() => {
+                    if (item.key === "mac") {
+                      handleNavigation("/MacMenu1");
+                    } else if (item.key === "store") {
+                      handleNavigation("/store");
+                    } else {
+                      handleNavigation(`/${item.key}`);
+                    }
+                  }}
                   className={`text-[12px] font-normal tracking-wide transition-colors duration-200 ${activeOverlay || !isHomePage
                     ? "text-[#1d1d1f]/80 hover:text-black"
                     : "text-white/80 hover:text-white"
@@ -200,7 +210,12 @@ function Navbar() {
                       if (menuData[item.key]) {
                         setActiveMobileSub(item.key);
                       } else {
-                        handleNavigation("/");
+                        // កែសម្រួល logic សម្រាប់ mobile ពេលចុចចំ Mac ឱ្យទៅ /MacMenu1
+                        if (item.key === "mac") {
+                          handleNavigation("/MacMenu1");
+                        } else {
+                          handleNavigation("/");
+                        }
                       }
                     }}
                     className="text-3xl font-semibold px text-zinc-800 hover:text-zinc-500 text-left w-full flex justify-between items-center"

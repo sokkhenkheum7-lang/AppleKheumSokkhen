@@ -3,8 +3,8 @@ import Navbar from "./components/layout/Navbar";
 import Home from "./pages/Home";
 import Store from "./pages/Store";
 import Mac from "./pages/Mac";
-// 1. IMPORT YOUR IPAD PAGE COMPONENT HERE
 import Ipad from "./pages/Ipad/ipad";
+import MacMenu1 from "./pages/MacMenu/MacMenu1";
 
 function App() {
   return (
@@ -22,6 +22,8 @@ function App() {
         
         {/* 2. ROUTE CHANGED FROM <iPad /> TO <Ipad /> TO MATCH YOUR COMPONENT DEFINITION */}
         <Route path="/ipad" element={<Ipad />} />
+        <Route path="/MacMenu1" element={<MacMenu1/>}/>
+        <Route path="/explore-all-mac" element={<MacMenu1 />} />
       </Routes>
     </BrowserRouter>
   );

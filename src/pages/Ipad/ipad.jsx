@@ -4,22 +4,25 @@ import ShopIpad from "./ShopIpad";
 import IpadSubNav from "./IpadSubNav";
 import AllModel1 from "./AllModel1";
 import ShoppingGuides1 from "./ShoppingGuides1";
-import WayTosave from "./WayTosave"; 
-import AppleStoreDifferencePad from "./AppleStoreDifferencPad"; 
+import WayTosave from "./WayTosave";
+import AppleStoreDifferencePad from "./AppleStoreDifferencPad";
 import AccessoriesIpad from "./AccessoriesIpad";
-import TheiPadexperience from "./TheiPadexperience"; // <-- ១. នាំចូល Component ថ្មី
-import SetupAndSupportIpad from "./SetupAndSupportIpad"; 
+import TheiPadexperience from "./TheiPadexperience";
+import SetupAndSupportIpad from "./SetupAndSupportIpad";
+import SavingOffers from "./SavingOffers";
+import Footer from "../../components/layout/Footer";
 
 export default function Ipad() {
   const [activeTab, setActiveTab] = useState(0);
-  
+
   const allModel1Ref = useRef(null);
   const shoppingGuides1Ref = useRef(null);
   const WayTosaveRef = useRef(null);
-  const appleStoreDiffRef = useRef(null); 
-  const AccessoriesIpadRef = useRef(null); 
-  const ipadExperienceRef = useRef(null); // <-- ២. បង្កើត Ref ថ្មី
-  const setupSupportRef = useRef(null); 
+  const appleStoreDiffRef = useRef(null);
+  const AccessoriesIpadRef = useRef(null);
+  const ipadExperienceRef = useRef(null);
+  const setupSupportRef = useRef(null);
+  const SavingOffersRef = useRef(null);
 
   const handleTabClick = (index) => {
     setActiveTab(index);
@@ -34,17 +37,20 @@ export default function Ipad() {
     } else if (index === 2 && WayTosaveRef.current) {
       const y = WayTosaveRef.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: "smooth" });
-    } else if (index === 3 && appleStoreDiffRef.current) { 
+    } else if (index === 3 && appleStoreDiffRef.current) {
       const y = appleStoreDiffRef.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: "smooth" });
-    } else if (index === 4 && AccessoriesIpadRef.current) { 
+    } else if (index === 4 && AccessoriesIpadRef.current) {
       const y = AccessoriesIpadRef.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: "smooth" });
-    } else if (index === 5 && ipadExperienceRef.current) { // <-- ៣. លក្ខខណ្ឌរមូរថ្មី
+    } else if (index === 5 && setupSupportRef.current) {
+      const y = setupSupportRef.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    } else if (index === 6 && ipadExperienceRef.current) {
       const y = ipadExperienceRef.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: "smooth" });
-    } else if (index === 6 && setupSupportRef.current) { 
-      const y = setupSupportRef.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
+    } else if (index === 7 && SavingOffersRef.current) {
+      const y = SavingOffersRef.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: "smooth" });
     }
   };
@@ -56,7 +62,7 @@ export default function Ipad() {
       if (setupSupportRef.current && scrollPosition >= setupSupportRef.current.offsetTop) {
         setActiveTab(6);
       } else if (ipadExperienceRef.current && scrollPosition >= ipadExperienceRef.current.offsetTop) {
-        setActiveTab(5); // <-- ៤. Sync Active Tab ពេលរមូរដល់ Experience
+        setActiveTab(5);
       } else if (AccessoriesIpadRef.current && scrollPosition >= AccessoriesIpadRef.current.offsetTop) {
         setActiveTab(4);
       } else if (appleStoreDiffRef.current && scrollPosition >= appleStoreDiffRef.current.offsetTop) {
@@ -80,20 +86,17 @@ export default function Ipad() {
         <ShopIpad />
         <IpadSubNav activeTab={activeTab} onTabClick={handleTabClick} />
 
-        <div className="space-y-7 pt-6 pb-24">
+        <div className="space-y-16 pt-6 pb-24">
           <div ref={allModel1Ref}><AllModel1 /></div>
           <div ref={shoppingGuides1Ref}><ShoppingGuides1 /></div>
           <div ref={WayTosaveRef}><WayTosave /></div>
           <div ref={appleStoreDiffRef}><AppleStoreDifferencePad /></div>
-          <div ref={AccessoriesIpadRef}><AccessoriesIpad/></div>
-          
-          
-          <div ref={ipadExperienceRef}>
-            <TheiPadexperience />
-          </div>
+          <div ref={AccessoriesIpadRef}><AccessoriesIpad /></div>
 
-          <div ref={setupSupportRef}>
-            <SetupAndSupportIpad /></div>
+          <div ref={setupSupportRef}><SetupAndSupportIpad /></div>
+          <div ref={ipadExperienceRef}><TheiPadexperience /></div>
+          <div ref={SavingOffersRef}><SavingOffers/></div>
+            <Footer/>
         </div>
       </div>
     </div>
