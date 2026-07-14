@@ -1,23 +1,34 @@
 import MegaMenu from "../../mega-menu/MegaMenu";
-import { menuData } from "../../mega-menu/MenuData";
-
+import { menuData } from "../../mega-menu/menuData";
 import SearchOverlay from "./SearchOverlay";
 import BagOverlay from "./BagOverlay";
 
-// Accept onNavigate down from Navbar
 export default function Overlay({ active, onNavigate }) {
   if (!active) return null;
 
-  return (
-    <div className="absolute left-0 top-full w-full z-50">
-      {active === "search" ? (
+  if (active === "search") {
+    return (
+      <div className="absolute left-0 top-full z-50 w-full">
         <SearchOverlay />
-      ) : active === "bag" ? (
+      </div>
+    );
+  }
+
+  if (active === "bag") {
+    return (
+      <div className="absolute left-0 top-full z-50 w-full">
         <BagOverlay />
-      ) : (
-        /* Forward onNavigate down to MegaMenu */
-        <MegaMenu menu={menuData[active]} onNavigate={onNavigate} />
-      )}
+      </div>
+    );
+  }
+
+  const menu = menuData[active];
+
+  if (!menu) return null;
+
+  return (
+    <div className="absolute left-0 top-full z-50 w-full">
+      <MegaMenu menu={menu} onNavigate={onNavigate} />
     </div>
   );
 }

@@ -14,8 +14,8 @@ const subMenuItems = [
 
 export default function IpadSubNav({ activeTab, onTabClick }) {
   return (
-    // បានប្តូរពី sticky top-0 z-40 ទៅជា relative z-10 ដើម្បីកុំឱ្យវាហោះទៅជាន់ menu ផ្សេងទៀត
-    <div className="w-full bg-[#f5f5f7]/80 backdrop-blur-md relative z-10 pb-4 pt-6 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden border-b border-gray-200/40">
+    
+    <div className="w-full bg-[#f5f5f7] border-[#d2d2d7]/30 pb-4 pt-6 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
       <div className="flex gap-8 text-[14px] font-normal min-w-max">
         {subMenuItems.map((item, index) => {
           const isActive = activeTab === index;

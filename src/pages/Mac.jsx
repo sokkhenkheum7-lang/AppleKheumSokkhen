@@ -101,7 +101,7 @@ export default function Mac() {
         <MacSubNav activeTab={activeTab} onTabClick={handleTabClick} />
 
         {/* Stacked Layout Sections */}
-        <div className="space-y-7 pt-6 pb-24">
+        <div className="space-y-5 pt-6 pb-20">
 
           {/* Section 1: All Models */}
           <div ref={allModelsRef}>

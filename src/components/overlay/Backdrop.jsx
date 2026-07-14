@@ -9,8 +9,10 @@ export default function Backdrop({ open, onClose }) {
         inset-0
         top-11
         z-40
-        bg-black/20
+        bg-gray/20
         backdrop-blur-sm
+        hidden
+        md:block
       "
     />
   );

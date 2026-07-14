@@ -181,4 +181,14 @@
     right: 0;
     border-right-color: var(--border);
   }
+  fontFamily: {
+  sf: [
+    "SF Pro Display",
+    "SF Pro Icons",
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    "sans-serif",
+  ],
+
 }

@@ -72,7 +72,7 @@ const macModels = [
 
 export default function AllModels() {
   return (
-    <div className="space-y-6 w-full">
+    <div className="space-y-8 w-full">
       <h3 className="text-[24px] md:text-[28px] font-semibold tracking-tight text-[#6e6e73]">
         <span className="text-[#1d1d1f]">All models.</span> Take your pick.
       </h3>

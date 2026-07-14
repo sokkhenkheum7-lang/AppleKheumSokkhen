@@ -1,3 +1,5 @@
+// src/components/layout/menuData.js (ឬទីតាំងដែលអ្នកចង់ដាក់)
+
 export const menuData = {
   store: {
     columns: [
@@ -37,7 +39,6 @@ export const menuData = {
       },
     ],
   },
-
   mac: {
     columns: [
       {
@@ -76,7 +77,6 @@ export const menuData = {
       },
     ],
   },
-
   ipad: {
     columns: [
       {
@@ -113,7 +113,6 @@ export const menuData = {
       },
     ],
   },
-
   iphone: {
     columns: [
       {
@@ -148,7 +147,6 @@ export const menuData = {
       },
     ],
   },
-
   watch: {
     columns: [
       {
@@ -183,7 +181,6 @@ export const menuData = {
       },
     ],
   },
-
   vision: {
     columns: [
       {
@@ -213,7 +210,6 @@ export const menuData = {
       },
     ],
   },
-
   airpods: {
     columns: [
       {
@@ -244,7 +240,6 @@ export const menuData = {
       },
     ],
   },
-
   tvhome: {
     columns: [
       {
@@ -275,7 +270,6 @@ export const menuData = {
       },
     ],
   },
-
   entertainment: {
     columns: [
       {
@@ -300,7 +294,6 @@ export const menuData = {
       },
     ],
   },
-
   accessories: {
     columns: [
       {
@@ -326,7 +319,6 @@ export const menuData = {
       },
     ],
   },
-
   support: {
     columns: [
       {

@@ -50,8 +50,8 @@ export default function AllModel1() {
   };
 
   return (
-    // បន្ថែម space-y-20 ដើម្បីឱ្យមានគម្លាតស្អាត និងធំទូលាយបែប Apple រវាង Slider និង Shopping Guides
-    <div className="space-y-20 w-full mt-10 relative group/slider">
+   
+    <div className="space-y-6 w-full mt-10 relative group/slider">
       
       {/* ផ្នែក All Models Slider */}
       <div className="space-y-6">

@@ -115,7 +115,7 @@ function GuideCard({ card }) {
         <img
           src={card.img}
           alt={card.title}
-          className="w-[370px] object-cover object-bottom transition-transform duration-500 "
+          className="w-full h-full object-cover object-bottom transition-transform duration-500 group-hover:scale-[1.01] "
         />
       </div>
 

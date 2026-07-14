@@ -3,7 +3,7 @@ import React from "react";
 
 export default function Shopipdad() {
   return (
-    <div className="sm:pt-1 md:pt-20 pb-4 flex flex-col md:flex-row md:justify-between md:items-baseline gap-4 w-full">
+    <div className="sm:pt-1 md:pt-20 pb-6 flex flex-col md:flex-row md:justify-between md:items-baseline gap-4 w-full">
       {/* Dynamic scaled header responsive across screen dimensions */}
       <h1 className="text-[48px] sm:text-[64px] lg:text-[80px] font-semibold tracking-tight text-[#1d1d1f] leading-none shrink-0">
         Shop iPad
