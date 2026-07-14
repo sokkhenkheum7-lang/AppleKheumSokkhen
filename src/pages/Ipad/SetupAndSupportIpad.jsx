@@ -7,7 +7,7 @@ const supportCards = [
     tag: "APPLECARE",
     title: "Handled with AppleCare.",
     description: "Protect your iPad with AppleCare+ with Theft and Loss. Or protect multiple products with AppleCare One.",
-    img: "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/ipad-card-50-applecare-202405?wid=960&hei=1000&fmt=p-jpg&qlt=95&.v=1713401569766",
+    img: "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/ipad-card-50-applecare-202311_GEO_US?wid=960&hei=1000&fmt=p-jpg&qlt=95&.v=QkF3d3h0Wm10ZzJ3L2t5cnNXMkdiRXBmam9nUmR3bjF3REVTd3VJcEwybGliOTBDYU5saG5qVVFqcjlWTi9hWnFmS3YvQ0doSFZENndQR0J4TTRqbnpLSjUwMGVwY1Y2MG5oSi9mdUgvTkpXbW9naVRaYk52T0tGSVB4ZENRZWw",
     isPlayable: false,
   },
   {

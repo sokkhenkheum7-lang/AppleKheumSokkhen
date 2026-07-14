@@ -50,10 +50,10 @@ export default function AllModel1() {
   };
 
   return (
-   
-    <div className="space-y-6 w-full mt-10 relative group/slider">
+    
+    <div className="space-y-20 w-full mt-10 relative group/slider">
       
-      {/* ផ្នែក All Models Slider */}
+      
       <div className="space-y-6">
         <h3 className="text-[24px] md:text-[28px] font-semibold tracking-tight text-[#6e6e73]">
           <span className="text-[#1d1d1f]">All models.</span> Take your pick.
