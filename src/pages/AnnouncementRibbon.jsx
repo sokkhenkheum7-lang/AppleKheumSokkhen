@@ -3,7 +3,7 @@ import React from "react";
 
 export default function AnnouncementRibbon() {
   return (
-    <div className="w-full bg-white py-7 border-b border-gray-100 ">
+    <div className="w-full bg-white py-4 border-b border-gray-100 ">
       <div className="mx-auto max-w-[89%] px-6 lg:px-0 text-center">
       <p className="inline-block text-center font-normal text-[#1d1d1f] text-[13px] md:text-[14px] leading-relaxed">
         <span>
