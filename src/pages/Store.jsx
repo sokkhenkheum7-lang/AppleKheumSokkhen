@@ -233,12 +233,12 @@ function CategoryCard({ item, active, onClick }) {
 function ProductCard({ product }) {
   const isDarkBg = product.bgClass.includes("bg-black");
   return (
-    <div className={`relative w-[340px] sm:w-[400px] h-[500px] rounded-[25px] px-8 pt-8 pb-8 overflow-hidden snap-start shrink-0 transition-all duration-500 hover:scale-[1.01] shadow-sm hover:shadow-md ${product.bgClass}`}>
+    <div className={`relative w-[340px] sm:w-[400px] h-[500px] rounded-[20px] px-8 pt-8 pb-8 overflow-hidden snap-start shrink-0 transition-all duration-500 hover:scale-[1.01] shadow-sm hover:shadow-md ${product.bgClass}`}>
       <div className="relative z-20 flex flex-col">
         {product.tag && <span className="mb-2 text-[14px] font-semibold uppercase tracking-[0.12em] text-[#bf4800]">{product.tag}</span>}
-        <h4 className={`text-[28px] font-bold leading-[32px] tracking-[0.196px] ${isDarkBg ? "text-white" : "text-[#1d1d1f]"}`}>{product.title}</h4>
-        <p className={`mt-1 text-[14px] font-bold leading-[18px] ${isDarkBg ? "text-white/90" : "text-[#1d1d1f]"}`}>{product.subtitle}</p>
-        <p className={`mt-[3px] text-[14px] font-normal leading-[20px] ${isDarkBg ? "text-[#a1a1a6]" : "text-[#6e6e73]"}`}>{product.price}</p>
+        <h4 className={`text-[28px] font-semibold leading-[32px] tracking-[0.196px] ${isDarkBg ? "text-white" : "text-[#1d1d1f]"}`}>{product.title}</h4>
+        <p className={`mt-1 text-[14px] font-semibold leading-[18px] ${isDarkBg ? "text-white/90" : "text-[#1d1d1f]"}`}>{product.subtitle}</p>
+        <p className={`mt-[3px] text-[14px] font-normal leading-[20px] ${isDarkBg ? "text-[#a1a1a6]" : "text-gray-600"}`}>{product.price}</p>
       </div>
       <div className="absolute inset-x-0 bottom-0 top-[18%] z-0 flex items-center justify-center overflow-hidden pointer-events-none">
         <img src={product.img} alt={product.title} className="w-full h-auto object-contain -translate-y-6" />
@@ -246,7 +246,6 @@ function ProductCard({ product }) {
     </div>
   );
 }
-
 function HelpCard({ card }) {
   const isDarkBg = card.bgClass.includes("bg-black");
   return (
