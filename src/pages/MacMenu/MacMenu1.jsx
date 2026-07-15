@@ -3,18 +3,29 @@ import AnnounceHeader from "./AnnounceHeader";
 import TheMacHero from "./TheMacHero";
 import Explore from "./Explore";
 import WhyApple from "./WhyApple";
+import GetToKnow from "./GetToKnow";
+import SwitchToMac from "./SwitchToMac";
+import MacEssentials from "./MacEssentials";
+import PageUnlock from "./PageUnlock";
+import MacTitle from "./MacTitle";
+import Footer from "../../components/layout/Footer";
+
 
 function MacMenu1() {
   return (
-    <div className="pt-11 min-h-screen bg-[#f5f5f7] text-[#1d1d1f] font-sans antialiased w-full overflow-x-hidden">
-      <AnnounceHeader />
-       <TheMacHero/>
-      
-      <div className="mx-auto max-w-[89%] px-6 lg:px-0">
-        <Explore/>
-        <WhyApple/>
-      </div>
+    <div className="pt-11 min-h-screen bg-white text-[#1d1d1f] font-sans antialiased w-full overflow-x-hidden">
+      <AnnounceHeader />   
+      <TheMacHero />
+      <Explore />
+      <WhyApple />
+      <GetToKnow />
+      <SwitchToMac />
+      <MacEssentials/>
+      <PageUnlock/>
+      <MacTitle/>
+      <Footer/>
     </div>
+
   );
 }
 
