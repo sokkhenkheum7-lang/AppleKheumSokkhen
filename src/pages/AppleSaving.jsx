@@ -8,7 +8,7 @@ const SAVING_ITEMS = [
   {
   id: "carrier-deals",
   tag: "CARRIER DEALS AT APPLE",
-  title: "Get up to $800–$1100 in credit on a new iPhone after trade-in.",
+  title: "Get up to $900–$1100 in credit on a new iPhone after trade-in.",
   subtitle: "Explore deals that accept eligible trade-in devices in any condition — and some that don't require a trade-in at all.*",
   image: "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-card-40-carriertrade-202409?wid=800&hei=1000&fmt=p-jpg&qlt=95&.v=cmVEYjlFVTUrZjdLT25ZZ2djOUZ2WTVRdHN0TWZxV3QyUGs3WkMzR0dyM1Nab1lJcUZwSFVRK1htYlNmZUtPTFN5aWNYUFpIbkFhdm03T3BzSjdVSXljNnc4c1drVHZvWWlGUXhnb2V5L09yM3dvVGNOcHh1NWJldDJaWTZVVHI",
 },
