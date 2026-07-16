@@ -113,7 +113,7 @@ export default function Store() {
             ))}
           </HorizontalSlider>
         </div>
-         {/* 2nd Showcase Block: Apple Store Difference Section */}
+         {/* 2nd Showcase Block: Apple Stores Difference Section */}
         <div className="space-y-6">
           <h3 className="text-[24px] md:text-[28px] font-semibold tracking-tight text-[#6e6e73]">
             <span className="text-[#1d1d1f]">The Apple Store difference.</span> Even more reasons to shop with us.
