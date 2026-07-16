@@ -34,7 +34,7 @@ const products = [
     image: promo4,
     bgClass: "bg-[#f5f5f7]",
     watch: true,
-    watchSeries: "SERIES 11",
+    watchSeries: "SERIES 14",
   },
   {
     title: "Trade In",
