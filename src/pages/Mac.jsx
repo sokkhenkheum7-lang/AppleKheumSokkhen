@@ -2,7 +2,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import Footer from "../components/layout/Footer";
 import AnnouncementRibbon from "./AnnouncementRibbon";
-import StoreHeader from "./StoreHeader";
+import StoreHeader from "./TempStoreHeader";
 import MacSubNav from "./MacSubNav";
 import AllModels from "./AllModels";
 import ShoppingGuides from "./ShoppingGuides";
