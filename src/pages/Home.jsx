@@ -1,7 +1,7 @@
 import Navbar from "../components/layout/Navbar";
 import Hero from "../components/home/Hero";
 import PromoBanner from "../components/home/PromoBanner";
-import ProductsGrid from "../components/home/ProductsGrid"; // Fixed capitalization casing
+import ProductsGrid from "../components/home/ProductsGrid";
 import AppleTV from "../components/home/AppleTV";
 import Footer from "../components/layout/Footer";
 import iphonelineup from "../assets/banner/iphonelineup.jpg";

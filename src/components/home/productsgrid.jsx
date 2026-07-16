@@ -1,10 +1,10 @@
 
-import promo1 from "../../assets/grid/promo_ipad1.jpg";
-import promo2 from "../../assets/grid/promo_ipad2.jpg";
-import promo3 from "../../assets/grid/promo_ipad3.jpg";
-import promo4 from "../../assets/grid/promo_ipad4.jpg";
-import promo5 from "../../assets/grid/promo_ipad5.jpg";
-import promo6 from "../../assets/grid/promo_ipad6.jpg";
+import promo1 from "/src/assets/grid/promo_ipad1.jpg";
+import promo2 from "/src/assets/grid/promo_ipad2.jpg";
+import promo3 from "/src/assets/grid/promo_ipad3.jpg";
+import promo4 from "/src/assets/grid/promo_ipad4.jpg";
+import promo5 from "/src/assets/grid/promo_ipad5.jpg";
+import promo6 from "/src/assets/grid/promo_ipad6.jpg";
 
 const products = [
   {
