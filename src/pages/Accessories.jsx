@@ -43,8 +43,8 @@ const accessoryItems = [
     {
         id: "crossbody-strap",
         isNew: true,
-        title: "Crossbody Strap - Bright Guava",
-        price: 59.00,
+        title: "iPhone 17e Clean Case with MagSafe",
+        price: 49.00,
         image: "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/MHWC4?wid=400&hei=400&fmt=jpeg&qlt=90&.v=TGRzbEExZ1hmQndnbDdGQXEzM1pWZllvYS9naDJJdU9KTWdGWjhKWFRmS2FYdGFuZ3VBL21jSTR5eStienlZLytvQ1ZwQXE3dUJuUnc0WnZUTWRPdlE",
         colors: [
 
@@ -52,86 +52,81 @@ const accessoryItems = [
     },
     {
         id: "crossbody-strap",
-        isNew: true,
-        title: "Crossbody Strap - Bright Guava",
-        price: 59.00,
+        
+        title: "49mm Cleamentine Sport Brand-M/L",
+        price: 49.00,
         image: "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/MHYK4ref?wid=400&hei=400&fmt=jpeg&qlt=90&.v=bzA4SERRcldUS1BuWUpkcHhlTGpGOWVidldMUGJjaXo4L3NxcmNtKzZhUWMvQURoYTJTV01mUTVYVFk2eEVRaXl2c3ptS3dmbjg2WllpbTNud2ZsK3c",
         colors: [
-            { name: "Soft Pink", hex: "#fcd7d9" },
+            { name: "Soft Pink", hex: "#b0151c" },
             { name: "Bright Guava", hex: "#ff5e62" },
-            { name: "Lime", hex: "#dfff4f" },
+            { name: "Lime", hex: "rgb(166, 27, 174)" },
             { name: "Navy", hex: "#1f2937" },
             { name: "Sage", hex: "#b5c4b1" },
-            { name: "Taupe", hex: "#d1c7bd" },
+            { name: "Taupe", hex: "#9c5d1e" },
         ]
     },
     {
         id: "crossbody-strap",
-        isNew: true,
-        title: "Crossbody Strap - Bright Guava",
-        price: 59.00,
+      
+        title: "Magic Keyboard for iPad Air 13-inch (M4)-US English-..",
+        price: 319.00,
         image: "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/MGYY4?wid=400&hei=400&fmt=jpeg&qlt=90&.v=cXE4eWx0VnJZVVhyNEgrSHdoTXBFL1lvYS9naDJJdU9KTWdGWjhKWFRmTDIxVS8wcGRSdlR3MXU5L0FlWS81Yy9tbVBaOEJXZFoxUWFzTHlRSm1CR1E",
         colors: [
-            { name: "Soft Pink", hex: "#fcd7d9" },
-            { name: "Bright Guava", hex: "#ff5e62" },
-            { name: "Lime", hex: "#dfff4f" },
+            
             { name: "Navy", hex: "#1f2937" },
-            { name: "Sage", hex: "#b5c4b1" },
-            { name: "Taupe", hex: "#d1c7bd" },
+            { name: "Sage", hex: "#d3ded0" },
+           
         ]
     },
     {
         id: "crossbody-strap",
-        isNew: true,
-        title: "Crossbody Strap - Bright Guava",
+       
+        title: "iPhone Air MagSae Battery",
         price: 59.00,
         image: "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/MGPG4?wid=400&hei=400&fmt=jpeg&qlt=90&.v=Sml1aUlKZ3BBVnQ2MmgzRnB4Wi9jUFlvYS9naDJJdU9KTWdGWjhKWFRmTHI1T3Rua2ZCWEpxaXFZS01CYzFXdklaY0ZqN3p4QnhWMWFIdUloZmtPOGc",
         colors: [
-            { name: "Soft Pink", hex: "#fcd7d9" },
-            { name: "Bright Guava", hex: "#ff5e62" },
-            { name: "Lime", hex: "#dfff4f" },
-            { name: "Navy", hex: "#1f2937" },
-            { name: "Sage", hex: "#b5c4b1" },
-            { name: "Taupe", hex: "#d1c7bd" },
+            
         ]
     },
     {
         id: "crossbody-strap",
-        isNew: true,
-        title: "Crossbody Strap - Bright Guava",
-        price: 59.00,
+        
+        title: "iPhone Air Bumper - Tan",
+        price: 39.00,
         image: "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/MH044?wid=400&hei=400&fmt=jpeg&qlt=90&.v=b0dQc2pqYmp2ZFNSZ000UEZYWmZ0L1lvYS9naDJJdU9KTWdGWjhKWFRmSUplZzJVZVhEYnNEendxb29UeHdxUzlhMmlhMnVHanUxd0xibTFqRUs4R1E",
         colors: [
-            { name: "Soft Pink", hex: "#fcd7d9" },
-            { name: "Bright Guava", hex: "#ff5e62" },
-            { name: "Lime", hex: "#dfff4f" },
+            { name: "Soft Pink", hex: "#c1baba" },
+            { name: "Bright Guava", hex: "#a59d9e" },
+            { name: "Lime", hex: "#63645f" },
             { name: "Navy", hex: "#1f2937" },
-            { name: "Sage", hex: "#b5c4b1" },
-            { name: "Taupe", hex: "#d1c7bd" },
+            
         ]
     },
     {
         id: "crossbody-strap",
-        title: "Crossbody Strap - Bright Guava",
+        title: "Mophie Check Case for - iPhone Air",
         price: 59.00,
         image: "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/HSFN2?wid=400&hei=400&fmt=jpeg&qlt=90&.v=d0pkcVZxc1lXUWZYcFlVTDJFTGhoL1lvYS9naDJJdU9KTWdGWjhKWFRmSm96ZnUxa2pJU2NrSFRwQlExalh6TXVsSnB5S29Ya1Z4RWhqTVNlRmVicUE",
         colors: [
-
+           
         ]
     },
     {
         id: "crossbody-strap",
-        title: "Crossbody Strap - Bright Guava",
+        title: "Hereschel Cloud Sling for iPhone",
         price: 59.00,
         image: "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/HSFD2?wid=400&hei=400&fmt=jpeg&qlt=90&.v=VU4xVVlPeUtlRnBVZW5uR3RWYkgxL1lvYS9naDJJdU9KTWdGWjhKWFRmSzJzMkY5ZDRrcTlvL0QyQ1hlWER2NUI5KzJVSWdpU1pBa2ZoVzZabm92bFE",
         colors: [
+             { name: "Lime", hex: "#d12073" },
+            { name: "Navy", hex: "#abb0b7" },
+
 
         ]
     },
     {
         id: "crossbody-strap",
-        title: "Crossbody Strap - Bright Guava",
-        price: 59.00,
+        title: "40W Dynamic Power Adapter with 60W Max",
+        price: 39.00,
         image: "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/MGKN4?wid=400&hei=400&fmt=jpeg&qlt=90&.v=OXg3UUZsRGMvSHJySWlFcGJveGFIL1lvYS9naDJJdU9KTWdGWjhKWFRmSUMwU1RRZHF2ZXh6bndTY25FVXlJSnBJeGNrTGFSQWdhbXJCNzF6VnhLS1E",
         colors: [
 
@@ -139,8 +134,8 @@ const accessoryItems = [
     },
     {
         id: "crossbody-strap",
-        title: "Crossbody Strap - Bright Guava",
-        price: 59.00,
+        title: "20W USB-C Power Adapter",
+        price: 19.00,
         image: "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/MWVV3?wid=400&hei=400&fmt=jpeg&qlt=90&.v=SjNBR2N3QSt4UzFnQTB1NzdJd1VwUFlvYS9naDJJdU9KTWdGWjhKWFRmSU03dmFGL3FSTTRycHFSZi8vcVdOa1JRQUNWVDA4SWlPcldhVTdNTjhFOEE",
         colors: [
 

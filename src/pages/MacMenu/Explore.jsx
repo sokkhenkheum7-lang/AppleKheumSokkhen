@@ -82,8 +82,8 @@ export default function Explore() {
     });
 
     return (
-        <section className="bg-[#f5f5f7] pt-16 pb-16 w-full overflow-hidden font-sans antialiased">
-            <div className="max-w-[1264px] mx-auto px-6 md:px-0">
+        <section className="bg-[#f5f5f7] pt-12 pb-12 w-full overflow-hidden font-sans antialiased">
+            <div className="max-w-[1000px] mx-auto px-6 md:px-0">
 
                 {/* Title */}
                 <div className="mb-8">
@@ -93,7 +93,7 @@ export default function Explore() {
                 </div>
 
                 {/* Category Tabs */}
-                <div className="mb-12">
+                <div className="mb-11">
                     <div className="inline-flex bg-[#e8e8ed] p-[7px] rounded-full">
                         {categories.map((category) => {
                             const isActive = activeTab === category;

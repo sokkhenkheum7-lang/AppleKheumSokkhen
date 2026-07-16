@@ -24,6 +24,7 @@ function App() {
         <Route path="/ipad" element={<Ipad />} />
         <Route path="/MacMenu1" element={<MacMenu1/>}/>
         <Route path="/explore-all-mac" element={<MacMenu1 />} />
+         <Route path="/explore-all-ipad" element={<Ipad/>} />
       </Routes>
     </BrowserRouter>
   );

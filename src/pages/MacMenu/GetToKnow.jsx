@@ -101,7 +101,7 @@ export default function GetToKnow() {
   return (
   
     <section className="bg-[#f5f5f7] md:bg-white pt-14 pb-9 w-full overflow-hidden font-sans antialiased">
-      <div className="max-w-[1264px] mx-auto px-6 md:px-0">
+      <div className="max-w-[1000px] mx-auto px-6 md:px-0">
         
         {/* Title Area */}
         <div className="mb-9">

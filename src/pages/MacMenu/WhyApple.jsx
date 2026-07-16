@@ -108,7 +108,7 @@ export default function WhyApple() {
 
   return (
     <section className="bg-[#f5f5f7] pt-1 pb-20 w-full overflow-hidden font-sans antialiased">
-      <div className="max-w-[1264px] mx-auto px-6 md:px-0">
+      <div className="max-w-[1000px] mx-auto px-6 md:px-0">
         
         {/* Header Area */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-9">

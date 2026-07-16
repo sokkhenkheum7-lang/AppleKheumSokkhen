@@ -1,6 +1,7 @@
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { ChevronLeft } from "lucide-react";
 
 import hero from "../../assets/images/hero.png";
 import chart from "../../assets/images/chart.png";
@@ -65,14 +66,14 @@ function Navbar() {
     navigate(path);
   };
 
-  // កែសម្រួលត្រង់នេះ៖ ចាប់លក្ខខណ្ឌ Sub Link ឱ្យរត់ទៅ Route ថ្មី /MacMenu1
+
   const handleSubLinkClick = (linkName) => {
     const formattedLink = linkName.toLowerCase().replace(/\s+/g, "");
     if (formattedLink === "shopthelatest") {
       handleNavigation("/store");
     } else if (
-      formattedLink === "exploreallmac" || 
-      formattedLink === "exploremac" || 
+      formattedLink === "exploreallmac" ||
+      formattedLink === "exploremac" ||
       formattedLink === "mac"
     ) {
       handleNavigation("/MacMenu1");
@@ -80,7 +81,7 @@ function Navbar() {
       handleNavigation("/ipad");
     } else {
       handleNavigation("/MacMenu1");
-    } 
+    }
   };
 
   return (
@@ -110,7 +111,7 @@ function Navbar() {
             <img src={hero} alt="Apple" className={`h-4.5 transition duration-300 ${logoClass}`} />
           </button>
 
-          {/* Centered Menu Items (Desktop) - កែសម្រួល logic ចុចឱ្យរត់ទៅរកផ្លូវថ្មី */}
+
           <ul className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-9 md:flex">
             {navItems.map((item) => (
               <li
@@ -174,13 +175,13 @@ function Navbar() {
               aria-label="Toggle Menu"
             >
               <span
-                className={`h-[1.5px] w-4 transition-transform duration-300 transform-gpu will-change-transform origin-center ${isOpen
+                className={`h-[1.5px] w-5 transition-transform duration-300 transform-gpu will-change-transform origin-center ${isOpen
                   ? "bg-zinc-800 rotate-45 translate-y-[3.25px]"
                   : (isHomePage && !activeOverlay ? "bg-gray-400" : "bg-gray-500")
                   }`}
               />
               <span
-                className={`h-[1.5px] w-4 transition-transform duration-300 transform-gpu will-change-transform origin-center ${isOpen
+                className={`h-[1.5px] w-5 transition-transform duration-300 transform-gpu will-change-transform origin-center ${isOpen
                   ? "bg-zinc-800 -rotate-45 -translate-y-[3.25px]"
                   : (isHomePage && !activeOverlay ? "bg-gray-400" : "bg-gray-500")
                   }`}
@@ -194,11 +195,11 @@ function Navbar() {
 
       {/* Mobile Menu */}
       <div className={`fixed inset-0 z-40 bg-white transition-all duration-500 md:hidden ${isOpen ? "visible opacity-100" : "pointer-events-none invisible opacity-0"}`}>
-        
+
         <div className="flex h-full flex-col overflow-y-auto px-10 pt-1 pb-10 antialiased">
-          
+
           {!activeMobileSub ? (
-            <ul className="space-y-2.5 pt-16">
+            <ul className="space-y-2.5 pt-15">
               {navItems.map((item, index) => (
                 <li
                   key={item.key}
@@ -210,7 +211,7 @@ function Navbar() {
                       if (menuData[item.key]) {
                         setActiveMobileSub(item.key);
                       } else {
-                        // កែសម្រួល logic សម្រាប់ mobile ពេលចុចចំ Mac ឱ្យទៅ /MacMenu1
+
                         if (item.key === "mac") {
                           handleNavigation("/MacMenu1");
                         } else {
@@ -218,7 +219,7 @@ function Navbar() {
                         }
                       }
                     }}
-                    className="text-3xl font-semibold px text-zinc-800 hover:text-zinc-500 text-left w-full flex justify-between items-center"
+                    className="text-3xl font-semibold text-gray-800 hover:text-[#1d1d1f] transition-colors duration-200 text-left w-full flex justify-between items-center"
                   >
                     <span>{item.label}</span>
                   </button>
@@ -226,39 +227,51 @@ function Navbar() {
               ))}
             </ul>
           ) : (
-            <div className="space-y-8 animate-fadeIn">
+            <div className="space-y-6 animate-fadeIn pt-10">
               {/* Inner Submenu Alignment Wrapper */}
-              <div className="flex justify-between items-center h-26 ">
+              <div className="flex justify-between items-center mb-6">
                 <button
                   onClick={() => setActiveMobileSub(null)}
-                  className=" hover:text-black flex items-center gap-2 text-sm transition-colors"
+                  className="items-center text-black hover:text-black transition-colors"
                 >
-                  <span>&lt;</span>
+
+                  <ChevronLeft size={26} />
                 </button>
               </div>
+              <ul className="space-y-5">
+                {menuData[activeMobileSub].columns[0].links.map((link, idx) => (
+                  <li key={idx}>
+                    <button
+                      onClick={() => handleSubLinkClick(link)}
+                      className="text-[27px] font-semibold text-zinc-800 hover:text-zinc-500 transition-colors text-left w-full"
+                    >
+                      {link}
+                    </button>
+                  </li>
+                ))}
+              </ul>
 
-              {menuData[activeMobileSub].columns.map((column, colIdx) => (
-                <div key={colIdx} className="space-y-3">
-                  <h3 className="text-xs uppercase tracking-wider text-zinc-400">
-                    {column.heading}
-                  </h3>
-                  <ul className="space-y-4">
-                    {column.links.map((link, linkIdx) => (
-                      <li key={linkIdx}>
-                        <button
-                          onClick={() => handleSubLinkClick(link)}
-                          className={`text-left w-full transition-colors font-semibold ${column.large
-                              ? "text-2xl text-zinc-800 hover:text-zinc-500"
-                              : "text-zinc-500 hover:text-black text-base"
-                            }`}
-                        >
-                          {link}
-                        </button>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
+              <div className="grid grid-cols-2 gap-4 pt-4">
+                {menuData[activeMobileSub].columns.slice(1).map((column, colIdx) => (
+                  <div key={colIdx} className="space-y-4">
+                    <h3 className="text-xs uppercase tracking-wider text-zinc-400 font-medium">
+                      {column.heading}
+                    </h3>
+                    <ul className="space-y-3">
+                      {column.links.map((link, linkIdx) => (
+                        <li key={linkIdx}>
+                          <button
+                            onClick={() => handleSubLinkClick(link)}
+                            className="text-left w-full text-zinc-600 hover:text-black text-[14px] transition-colors"
+                          >
+                            {link}
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
             </div>
           )}
         </div>
