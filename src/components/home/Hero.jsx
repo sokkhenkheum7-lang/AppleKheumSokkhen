@@ -14,22 +14,24 @@ function Hero() {
         <source src={heroVideo} type="video/mp4" />
       </video>
 
-      {/* Content */}
-      <div className="relative z-10 flex h-full flex-col items-center justify-start pt-[30%] text-white">
-        
-        <h1 className="text-4xl md:text-7xl font-semibold tracking-tight">
+
+      {/* Changed pt-[30%] to flex items-center and justify-center for better centering */}
+      <div className="relative z-10 flex h-full flex-col items-center justify-center px-4 text-center text-white">
+
+        <h1 className="text-5xl font-semibold tracking-tight md:text-7xl lg:text-8xl">
           AirPods Pro 3
         </h1>
-        <p className="text-xl md:text-2xl font-normal">
-          The world’s best in-ear <br />Active Noise Cancellation.
+        <p className="mt-4 text-lg font-normal md:text-2xl">
+          The world’s best in-ear
+          <br className="block md:hidden" />
+          Active Noise Cancellation.
         </p>
-        <div className="mt-4 flex gap-4">
-          <button className="rounded-full bg-white px-6 py-2.5 text-[17px] font-medium text-black">
-          Learn more
-        </button>
 
-        {/*button*/}
-          <button className="rounded-full bg-white/20 px-6 py-2.5 text-[17px] font-medium text-white backdrop-blur-md transition-all hover:bg-white hover:text-black">
+        <div className="mt-8 flex flex-row gap-4 justify-center">
+          <button className="rounded-full bg-white px-6 py-2.5 text-[15px] md:text-[17px] font-medium text-black transition-transform hover:scale-105">
+            Learn more
+          </button>
+          <button className="rounded-full bg-white/20 px-6 py-2.5 text-[15px] md:text-[17px] font-medium text-white backdrop-blur-md transition-all hover:bg-white hover:text-black">
             Buy
           </button>
         </div>
