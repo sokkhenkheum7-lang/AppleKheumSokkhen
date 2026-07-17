@@ -131,4 +131,15 @@ body {
   to {
     width: 100%;
   }
+ 
+  body {
+    
+    overscroll-behavior-y: none;
+  }
+
+
+header {
+ 
+  height: 44px; 
+}
 }

@@ -86,13 +86,12 @@ function Navbar() {
       <Backdrop open={activeOverlay !== null && !isOpen} onClose={() => setActiveOverlay(null)} />
 
       <header
-        className={`sticky top-0 left-0 z-50 w-full font-sans antialiased transition-all duration-300 ${
-          activeOverlay || isOpen
+        className={`fixed top-0 left-0 z-50 w-full h-11 font-sans antialiased transition-all duration-300 ${activeOverlay || isOpen
             ? "bg-white"
             : isHomePage
-            ? "bg-gray/80 backdrop-blur-xl border-transparent"
-            : "bg-gray/80 backdrop-blur-xl border-[#e8e8ed]"
-        }`}
+              ? "bg-gray/80 backdrop-blur-xl border-transparent"
+              : "bg-gray/80 backdrop-blur-xl border-[#e8e8ed]"
+          }`}
         onMouseLeave={() => setActiveOverlay(null)}
       >
         {isOpen && <div className="absolute inset-0 bg-white z-0 md:hidden" />}
@@ -121,11 +120,10 @@ function Navbar() {
                       handleNavigation(`/${item.key}`);
                     }
                   }}
-                  className={`text-[12px] font-normal tracking-wide transition-colors duration-200 ${
-                    activeOverlay || !isHomePage
+                  className={`text-[12px] font-normal tracking-wide transition-colors duration-200 ${activeOverlay || !isHomePage
                       ? "text-[#1d1d1f]/80 hover:text-black"
                       : "text-white/80 hover:text-white"
-                  }`}
+                    }`}
                 >
                   {item.label}
                 </button>
