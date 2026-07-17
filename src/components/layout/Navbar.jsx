@@ -34,6 +34,8 @@ function Navbar() {
   const location = useLocation();
   const isHomePage = location.pathname === "/";
 
+  const menuKeys = [...navItems.map((item) => item.key), "search", "bag"];
+
   const logoClass =
     activeOverlay || !isHomePage || isOpen
       ? "brightness-0 opacity-80 hover:opacity-100"
@@ -64,6 +66,7 @@ function Navbar() {
     navigate(path);
   };
 
+
   const handleSubLinkClick = (linkName) => {
     const formattedLink = linkName.toLowerCase().replace(/\s+/g, "");
     if (formattedLink === "shopthelatest") {
@@ -86,7 +89,7 @@ function Navbar() {
       <Backdrop open={activeOverlay !== null && !isOpen} onClose={() => setActiveOverlay(null)} />
 
       <header
-        className={`fixed top-0 left-0 z-50 w-full h-11 font-sans antialiased transition-all duration-300 ${activeOverlay || isOpen
+        className={`fixed top-0 left-0 z-50 w-full font-sans antialiased transition-all duration-300 ${activeOverlay || isOpen
             ? "bg-white"
             : isHomePage
               ? "bg-gray/80 backdrop-blur-xl border-transparent"
@@ -94,15 +97,19 @@ function Navbar() {
           }`}
         onMouseLeave={() => setActiveOverlay(null)}
       >
+
         {isOpen && <div className="absolute inset-0 bg-white z-0 md:hidden" />}
 
         <nav className="relative mx-auto flex h-11 max-w-[1038px] items-center justify-between px-4 lg:px-0 z-10">
+
           <button
             onClick={() => handleNavigation("/")}
-            className={`z-10 flex items-center justify-center transition-all duration-300 ${isOpen ? "opacity-0 pointer-events-none" : "opacity-100"}`}
+            className={`z-10 flex items-center justify-center transition-all duration-300 ${isOpen ? "opacity-0 pointer-events-none" : "opacity-100"
+              }`}
           >
             <img src={hero} alt="Apple" className={`h-4.5 transition duration-300 ${logoClass}`} />
           </button>
+
 
           <ul className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-9 md:flex">
             {navItems.map((item) => (
@@ -121,8 +128,8 @@ function Navbar() {
                     }
                   }}
                   className={`text-[12px] font-normal tracking-wide transition-colors duration-200 ${activeOverlay || !isHomePage
-                      ? "text-[#1d1d1f]/80 hover:text-black"
-                      : "text-white/80 hover:text-white"
+                    ? "text-[#1d1d1f]/80 hover:text-black"
+                    : "text-white/80 hover:text-white"
                     }`}
                 >
                   {item.label}
@@ -131,43 +138,65 @@ function Navbar() {
             ))}
           </ul>
 
+          {/* Right side icons */}
           <div className="z-10 flex items-center gap-5 sm:gap-6">
+
             <button
               onClick={() => setActiveOverlay("search")}
               aria-label="Search"
-              className={`py-2 flex items-center hover:opacity-70 transition-all duration-300 ${isOpen ? "opacity-0 pointer-events-none" : "opacity-100"}`}
+              className={`py-2 flex items-center hover:opacity-70 transition-all duration-300 ${isOpen ? "opacity-0 pointer-events-none" : "opacity-100"
+                }`}
             >
-              <img src={search} alt="Search" className={`h-[15px] w-[15px] transition duration-300 ${iconClass}`} />
+              <img
+                src={search}
+                alt="Search"
+                className={`h-[15px] w-[15px] transition duration-300 ${iconClass}`}
+              />
             </button>
 
             <button
               onClick={() => setActiveOverlay("bag")}
               aria-label="Bag"
-              className={`py-2 flex items-center hover:opacity-70 transition-all duration-300 ${isOpen ? "opacity-0 pointer-events-none" : "opacity-100"}`}
+              className={`py-2 flex items-center hover:opacity-70 transition-all duration-300 ${isOpen ? "opacity-0 pointer-events-none" : "opacity-100"
+                }`}
             >
-              <img src={chart} alt="Bag" className={`h-[17px] w-[15px] transition duration-300 ${iconClass}`} />
+              <img
+                src={chart}
+                alt="Bag"
+                className={`h-[17px] w-[15px] transition duration-300 ${iconClass}`}
+              />
             </button>
 
+            {/* Custom 2-Line Mobile Menu Button */}
             <button
               className="md:hidden flex flex-col justify-center items-end w-4 h-4 gap-[5px] group z-50 transition-all duration-300"
               onClick={isOpen ? handleMenuClose : () => setIsOpen(true)}
               aria-label="Toggle Menu"
             >
-              <span className={`h-[1.5px] w-5 transition-transform duration-300 transform-gpu will-change-transform origin-center ${isOpen ? "bg-zinc-800 rotate-45 translate-y-[3.25px]" : (isHomePage && !activeOverlay ? "bg-gray-400" : "bg-gray-500")}`} />
-              <span className={`h-[1.5px] w-5 transition-transform duration-300 transform-gpu will-change-transform origin-center ${isOpen ? "bg-zinc-800 -rotate-45 -translate-y-[3.25px]" : (isHomePage && !activeOverlay ? "bg-gray-400" : "bg-gray-500")}`} />
+              <span
+                className={`h-[1.5px] w-5 transition-transform duration-300 transform-gpu will-change-transform origin-center ${isOpen
+                  ? "bg-zinc-800 rotate-45 translate-y-[3.25px]"
+                  : (isHomePage && !activeOverlay ? "bg-gray-400" : "bg-gray-500")
+                  }`}
+              />
+              <span
+                className={`h-[1.5px] w-5 transition-transform duration-300 transform-gpu will-change-transform origin-center ${isOpen
+                  ? "bg-zinc-800 -rotate-45 -translate-y-[3.25px]"
+                  : (isHomePage && !activeOverlay ? "bg-gray-400" : "bg-gray-500")
+                  }`}
+              />
             </button>
           </div>
         </nav>
 
-        {/* Wrapper នេះទប់ស្កាត់ការបិទដោយចៃដន្យពេលអូស Mouse */}
-        <div onMouseEnter={(e) => e.stopPropagation()}>
-          <Overlay active={activeOverlay} onNavigate={handleNavigation} />
-        </div>
+        <Overlay active={activeOverlay} onNavigate={handleNavigation} />
       </header>
 
       {/* Mobile Menu */}
       <div className={`fixed inset-0 z-40 bg-white transition-all duration-500 md:hidden ${isOpen ? "visible opacity-100" : "pointer-events-none invisible opacity-0"}`}>
+
         <div className="flex h-full flex-col overflow-y-auto px-10 pt-1 pb-10 antialiased">
+
           {!activeMobileSub ? (
             <ul className="space-y-2.5 pt-15">
               {navItems.map((item, index) => (
@@ -181,8 +210,12 @@ function Navbar() {
                       if (menuData[item.key]) {
                         setActiveMobileSub(item.key);
                       } else {
-                        if (item.key === "mac") handleNavigation("/MacMenu1");
-                        else handleNavigation("/");
+
+                        if (item.key === "mac") {
+                          handleNavigation("/MacMenu1");
+                        } else {
+                          handleNavigation("/");
+                        }
                       }
                     }}
                     className="text-3xl font-semibold text-gray-800 hover:text-[#1d1d1f] transition-colors duration-200 text-left w-full flex justify-between items-center"
@@ -194,20 +227,29 @@ function Navbar() {
             </ul>
           ) : (
             <div className="space-y-6 animate-fadeIn pt-10">
+              {/* Inner Submenu Alignment Wrapper */}
               <div className="flex justify-between items-center mb-6">
-                <button onClick={() => setActiveMobileSub(null)} className="items-center text-black hover:text-black transition-colors">
+                <button
+                  onClick={() => setActiveMobileSub(null)}
+                  className="items-center text-black hover:text-black transition-colors"
+                >
+
                   <ChevronLeft size={26} />
                 </button>
               </div>
               <ul className="space-y-5">
                 {menuData[activeMobileSub].columns[0].links.map((link, idx) => (
                   <li key={idx}>
-                    <button onClick={() => handleSubLinkClick(link)} className="text-[27px] font-semibold text-zinc-800 hover:text-zinc-500 transition-colors text-left w-full">
+                    <button
+                      onClick={() => handleSubLinkClick(link)}
+                      className="text-[27px] font-semibold text-zinc-800 hover:text-zinc-500 transition-colors text-left w-full"
+                    >
                       {link}
                     </button>
                   </li>
                 ))}
               </ul>
+
               <div className="grid grid-cols-2 gap-4 pt-4">
                 {menuData[activeMobileSub].columns.slice(1).map((column, colIdx) => (
                   <div key={colIdx} className="space-y-4">
@@ -217,7 +259,10 @@ function Navbar() {
                     <ul className="space-y-3">
                       {column.links.map((link, linkIdx) => (
                         <li key={linkIdx}>
-                          <button onClick={() => handleSubLinkClick(link)} className="text-left w-full text-zinc-600 hover:text-black text-[14px] transition-colors">
+                          <button
+                            onClick={() => handleSubLinkClick(link)}
+                            className="text-left w-full text-zinc-600 hover:text-black text-[14px] transition-colors"
+                          >
                             {link}
                           </button>
                         </li>

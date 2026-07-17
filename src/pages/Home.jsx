@@ -9,9 +9,7 @@ import collegeMacIpad from "../assets/banner/college-mac-ipad.jpg";
 
 export default function Home() {
   return (
-   
-    <div className="min-h-screen bg-white text-[#1d1d1f] antialiased text-[17px] sm:text-[19px] font-sans selection:bg-neutral-200 pt-11">
-      
+    <div className="min-h-screen bg-white text-[#1d1d1f] antialiased text-[17px] sm:text-[19px] font-sans selection:bg-neutral-200">
       <Navbar />
 
       <Hero />
