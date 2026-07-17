@@ -86,7 +86,7 @@ function Navbar() {
       <Backdrop open={activeOverlay !== null && !isOpen} onClose={() => setActiveOverlay(null)} />
 
       <header
-        className={`fixed top-0 left-0 z-50 w-full font-sans antialiased transition-all duration-300 ${
+        className={`sticky top-0 left-0 z-50 w-full font-sans antialiased transition-all duration-300 ${
           activeOverlay || isOpen
             ? "bg-white"
             : isHomePage
